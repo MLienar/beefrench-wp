@@ -21,6 +21,13 @@ function montheme_title_separator()
     return '|';
 }
 
+function montheme_document_title_parts($title)
+{
+    unset($title['tagline']);
+    return $title;
+}
+
+
 
 
 add_action('wp_enqueue_scripts', 'montheme_register_assets');
@@ -28,5 +35,7 @@ add_action('wp_enqueue_scripts', 'montheme_register_assets');
 add_action('after_setup_theme', 'montheme_supports'); 
 
 add_filter('document_title_separator', 'montheme_title_separator');
+
+add_filter('document_title_parts', 'montheme_document_title_parts');
 
 ?>

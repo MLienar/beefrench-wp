@@ -17,127 +17,24 @@ get_header() ?>
             perspiciatis. Itaque adipisci officiis inventore odit.</p>
     </div>
     <div class="wrap_cd_produit">
+    <?php while (have_posts()): the_post(); ?>
         <div class="cd_produit">
+            <?php the_post_thumbnail( 'post-thumbnail', ['class' => 'img_produit', 'alt' => 'AF1 Custom', 'data-aos' => 'fade-up', 'data-aos-easing' => 'ease-out-cubic'] )?>
             <img src="<?php echo get_template_directory_uri();?>/code/images/png/af1.png" alt="AF1 CUSTOM" data-aos="fade-up"
                 data-aos-easing="ease-out-cubic" class="img_produit">
-            <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic">AF1 CUSTOM</h3>
-            <p data-aos="fade-left" data-aos-delay="200" data-aos-easing="ease-out-cubic">150€</p>
+            <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic"><?php the_title(); ?></h3>
+            <?php the_excerpt() . "€"; ?>
             <div class="overlay_produit_1">
                 <img src="<?php echo get_template_directory_uri();?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
             </div>
             <div class="overlay_produit_2">
-                <a href="#">Nom du modèle</a>
-                <p>20 €</p>
+                <a href="#"><?php the_title(); ?></a>
+                <p><?php the_excerpt() . "€"; ?></p>
             </div>
         </div>
-        <div class="cd_produit">
-            <img src="<?php echo get_template_directory_uri();?>/code/images/png/af1.png" alt="AF1 CUSTOM" data-aos="fade-up"
-                data-aos-easing="ease-out-cubic" class="img_produit">
-            <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic">AF1 CUSTOM</h3>
-            <p data-aos="fade-left" data-aos-delay="200" data-aos-easing="ease-out-cubic">150€</p>
-            <div class="overlay_produit_1">
-                <img src="<?php echo get_template_directory_uri();?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
-            </div>
-            <div class="overlay_produit_2">
-                <a href="#">Nom du modèle</a>
-                <p>20 €</p>
-            </div>
-        </div>
-        <div class="cd_produit">
-            <img src="<?php echo get_template_directory_uri();?>/code/images/png/af1.png" alt="AF1 CUSTOM" data-aos="fade-up"
-                data-aos-easing="ease-out-cubic" class="img_produit">
-            <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic">AF1 CUSTOM</h3>
-            <p data-aos="fade-left" data-aos-delay="200" data-aos-easing="ease-out-cubic">150€</p>
-            <div class="overlay_produit_1">
-                <img src="<?php echo get_template_directory_uri();?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
-            </div>
-            <div class="overlay_produit_2">
-                <a href="#">Nom du modèle</a>
-                <p>20 €</p>
-            </div>
-        </div>
-        <div class="cd_produit">
-            <img src="<?php echo get_template_directory_uri();?>/code/images/png/af1.png" alt="AF1 CUSTOM" data-aos="fade-up"
-                data-aos-easing="ease-out-cubic" class="img_produit">
-            <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic">AF1 CUSTOM</h3>
-            <p data-aos="fade-left" data-aos-delay="200" data-aos-easing="ease-out-cubic">150€</p>
-            <div class="overlay_produit_1">
-                <img src="<?php echo get_template_directory_uri();?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
-            </div>
-            <div class="overlay_produit_2">
-                <a href="#">Nom du modèle</a>
-                <p>20 €</p>
-            </div>
-        </div>
-        <div class="cd_produit">
-            <img src="<?php echo get_template_directory_uri();?>/code/images/png/af1.png" alt="AF1 CUSTOM" data-aos="fade-up"
-                data-aos-easing="ease-out-cubic" class="img_produit">
-            <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic">AF1 CUSTOM</h3>
-            <p data-aos="fade-left" data-aos-delay="200" data-aos-easing="ease-out-cubic">150€</p>
-            <div class="overlay_produit_1">
-                <img src="<?php echo get_template_directory_uri();?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
-            </div>
-            <div class="overlay_produit_2">
-                <a href="#">Nom du modèle</a>
-                <p>20 €</p>
-            </div>
-        </div>
-        <div class="cd_produit">
-            <img src="<?php echo get_template_directory_uri();?>/code/images/png/af1.png" alt="AF1 CUSTOM" data-aos="fade-up"
-                data-aos-easing="ease-out-cubic" class="img_produit">
-            <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic">AF1 CUSTOM</h3>
-            <p data-aos="fade-left" data-aos-delay="200" data-aos-easing="ease-out-cubic">150€</p>
-            <div class="overlay_produit_1">
-                <img src="<?php echo get_template_directory_uri();?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
-            </div>
-            <div class="overlay_produit_2">
-                <a href="#">Nom du modèle</a>
-                <p>20 €</p>
-            </div>
-        </div>
-        <div class="cd_produit">
-            <img src="<?php echo get_template_directory_uri();?>/code/images/png/af1.png" alt="AF1 CUSTOM" data-aos="fade-up"
-                data-aos-easing="ease-out-cubic" class="img_produit">
-            <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic">AF1 CUSTOM</h3>
-            <p data-aos="fade-left" data-aos-delay="200" data-aos-easing="ease-out-cubic">150€</p>
-            <div class="overlay_produit_1">
-                <img src="<?php echo get_template_directory_uri();?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
-            </div>
-            <div class="overlay_produit_2">
-                <a href="#">Nom du modèle</a>
-                <p>20 €</p>
-            </div>
-        </div>
-        <div class="cd_produit">
-            <img src="<?php echo get_template_directory_uri();?>/code/images/png/af1.png" alt="AF1 CUSTOM" data-aos="fade-up"
-                data-aos-easing="ease-out-cubic" class="img_produit">
-            <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic">AF1 CUSTOM</h3>
-            <p data-aos="fade-left" data-aos-delay="200" data-aos-easing="ease-out-cubic">150€</p>
-            <div class="overlay_produit_1">
-                <img src="<?php echo get_template_directory_uri();?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
-            </div>
-            <div class="overlay_produit_2">
-                <a href="#">Nom du modèle</a>
-                <p>20 €</p>
-            </div>
-        </div>
-        <div class="cd_produit">
-            <img src="<?php echo get_template_directory_uri();?>/code/images/png/af1.png" alt="AF1 CUSTOM" data-aos="fade-up"
-                data-aos-easing="ease-out-cubic" class="img_produit">
-            <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic">AF1 CUSTOM</h3>
-            <p data-aos="fade-left" data-aos-delay="200" data-aos-easing="ease-out-cubic">150€</p>
-            <div class="overlay_produit_1">
-                <img src="<?php echo get_template_directory_uri();?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
-            </div>
-            <div class="overlay_produit_2">
-                <a href="#">Nom du modèle</a>
-                <p>20 €</p>
-            </div>
-        </div>
+        <?php endwhile; ?>
     </div>
-
-
-</section>
+</section>  
 <section id="cd_contenu_index">
     <div class="contenu_index_5">
         <div class="sous_div_contenu_5" data-aos="fade-up-right" data-aos-easing="ease-out-cubic">
@@ -155,33 +52,7 @@ get_header() ?>
             data-aos-easing="ease-out-cubic" data-aos-delay="100">
     </div>
 </section>
-<section class="wrap_all_produit">
-    <div class="pres_produit">
-        <h3 data-aos="fade-right" data-aos-easing="ease-out-cubic">COLLECTIONS CUSTOMS</h3>
-        <p data-aos="fade-left" data-aos-delay="100" data-aos-easing="ease-out-cubic">Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Fuga veniam pariatur a, iste, id
-            tempore, molestiae corrupti ad repellendus cumque nesciunt eius mollitia consectetur
-            perspiciatis. Itaque adipisci officiis inventore odit.</p>
-    </div>
-    <div class="wrap_cd_produit">
-    <?php while (have_posts()): the_post(); ?>
-        <div class="cd_produit">
-            <?php the_post_thumbnail( 'post-thumbnail', ['class' => 'img_produit', 'alt' => 'AF1 Custom', 'data-aos' => 'fade-up', 'data-aos-easing' => 'ease-out-cubic'] )?>
-            <img src="<?php echo get_template_directory_uri();?>/code/images/png/af1.png" alt="AF1 CUSTOM" data-aos="fade-up"
-                data-aos-easing="ease-out-cubic" class="img_produit">
-            <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic"><?php the_title(); ?></h3>
-            <p data-aos="fade-left" data-aos-delay="200" data-aos-easing="ease-out-cubic"><?php the_excerpt(); ?>€</p>
-            <div class="overlay_produit_1">
-                <img src="<?php echo get_template_directory_uri();?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
-            </div>
-            <div class="overlay_produit_2">
-                <a href="#"><?php the_title(); ?></a>
-                <p><?php the_excerpt(); ?>€</p>
-            </div>
-        </div>
-        <?php endwhile; ?>
-    </div>
-</section>
+
 
 </main>
 
