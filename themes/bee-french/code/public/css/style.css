@@ -595,11 +595,28 @@ p {
 }
 
 .cd_404error {
-  min-height: 60vh;
+  min-height: 30vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #E7F3F3;
+  width: 100%;
+  text-align: center;
+}
+.cd_404error .hero_404 {
+  width: 100%;
+  box-shadow: none;
+  border: 2px solid #E7F3F3;
+  margin: 5% 0;
+}
+.cd_404error h2, .cd_404error p {
+  margin-top: 2%;
+}
+.cd_404error h2 a, .cd_404error p a {
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #901c1c;
 }
 
 header {
