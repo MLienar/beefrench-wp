@@ -558,6 +558,7 @@ p {
   appearance: none;
   transition: all 0.3s;
   position: relative;
+  float: left;
 }
 .wrap_all_produit .pres_produit form input[type=search]::-webkit-search-cancel-button {
   -webkit-appearance: none;

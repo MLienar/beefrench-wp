@@ -44,9 +44,7 @@ window.onload = function () {
         $('header>nav').toggleClass( "padding_toogle" );
         $('header').toggleClass( "header_1_bis" );
         menu.reversed() ? menu.play() : menu.reverse();  
-    });
-
-        
+    }); 
 
     // Joues avec les valeurs que j'ai mis entre guillemets
     // Je voyais un truc qui fasse un peu plus comme un fleur qui s'ouvre pour les photo si tu vois ce que je veux dire

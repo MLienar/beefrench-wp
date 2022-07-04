@@ -36,6 +36,7 @@
                 appearance: none;
                 transition: all .3s;
                 position: relative;
+                float: left;
                 &::-webkit-search-cancel-button{
                     -webkit-appearance: none;
                     height: 1em;
