@@ -657,6 +657,26 @@ p {
   }
 }
 
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+}
+.pagination .nav-links {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 15px;
+}
+.pagination .nav-links .current {
+  color: #901c1c;
+}
+.pagination .nav-links .next, .pagination .nav-links .prev {
+  margin: 2%;
+}
+
 .cd_404error {
   min-height: 30vh;
   display: flex;

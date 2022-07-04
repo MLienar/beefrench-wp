@@ -35,7 +35,9 @@ get_header() ?>
                     </div>
                 </div>
             <?php endwhile; ?>
+            
         </div>
+        <?php  the_posts_pagination(); ?>
     </section>
     <section id="cd_contenu_index">
         <div class="contenu_index_5">
