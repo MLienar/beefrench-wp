@@ -37,5 +37,7 @@ add_filter('document_title_separator', 'montheme_title_separator');
 
 add_filter('document_title_parts', 'montheme_document_title_parts');
 
+require_once('metaboxes/reduc.php');
+ReducMetaBox::register();
 
-?>
+?>  

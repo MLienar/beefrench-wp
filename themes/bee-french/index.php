@@ -30,7 +30,7 @@ get_header() ?>
                         <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
                     </div>
                     <div class="overlay_produit_2">
-                        <a href="#"><?php the_title(); ?></a>
+                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         <p><?php the_excerpt() . "€"; ?></p>
                     </div>
                 </div>
