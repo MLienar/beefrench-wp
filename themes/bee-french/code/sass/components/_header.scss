@@ -11,16 +11,21 @@ header {
         padding: 0;
         @media screen and (max-width: 550px) {
            align-items: flex-start;
-        }
-        h5 {
-        font-weight: bold;
-        text-transform: capitalize;
-        }   
+        } 
         ul {
-            width: 275px;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             list-style: none;
+            li{
+                &:nth-child(1){
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+                &:nth-child(2){
+                    text-transform: capitalize;
+                }
+            }
             @media screen and (max-width: 550px) {
                 display: none;
             }
