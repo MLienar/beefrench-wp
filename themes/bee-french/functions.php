@@ -29,7 +29,7 @@ function montheme_document_title_parts($title)
 
 function montheme_init()
 {
-    register_taxonomy('shoes', 'post', [
+    register_taxonomy('Catégorie', 'Sneakers', [
         'labels' => [
             'name' => 'Sneaker',
             'singular_name'     => 'Sneaker',
@@ -49,6 +49,19 @@ function montheme_init()
         ]);
 }
 
+function montheme_types() {
+    register_post_type('Sneakers', [
+        'label' => 'Sneakers',
+        'public' => true,
+        'menu_position' => 3,
+        'menu_icon' => get_template_directory_uri() . '/code/images/png/af1_logo.png',
+        'supports' => ['title', 'editor'],
+        'show_in_rest' => true,
+        'has_archive' => true,
+    ]);
+}
+
+add_action('init', 'montheme_types');
 
 add_action( 'init', 'montheme_init');
 
@@ -60,7 +73,92 @@ add_filter('document_title_separator', 'montheme_title_separator');
 
 add_filter('document_title_parts', 'montheme_document_title_parts');
 
+add_filter( 'kdmfi_featured_images', function( $featured_images ) {
+    $args = array(
+      'id' => 'image-vitrine-1',
+      'label_name' => 'Image Vitrine 1',
+      'label_set' => 'Set Image Vitrine 1',
+      'label_use' => 'Set Image Vitrine 1',
+      'post_type' => array( 'Sneakers' ),
+    );
+  
+    $featured_images[] = $args;
+  
+    return $featured_images;
+  });
+
+  add_filter( 'kdmfi_featured_images', function( $featured_images ) {
+    $args = array(
+      'id' => 'image-vitrine-2',
+      'label_name' => 'Image Vitrine 2',
+      'label_set' => 'Set Image Vitrine 2',
+      'label_use' => 'Set Image Vitrine 2',
+      'post_type' => array( 'Sneakers' ),
+    );
+  
+    $featured_images[] = $args;
+  
+    return $featured_images;
+  });
+
+  add_filter( 'kdmfi_featured_images', function( $featured_images ) {
+    $args = array(
+      'id' => 'image-sneakers-1',
+      'label_name' => 'Image Sneakers 1',
+      'label_set' => 'Set Image Sneakers 1',
+      'label_use' => 'Set Image Sneakers 1',
+      'post_type' => array( 'Sneakers' ),
+    );
+  
+    $featured_images[] = $args;
+  
+    return $featured_images;
+  });
+
+  add_filter( 'kdmfi_featured_images', function( $featured_images ) {
+    $args = array(
+      'id' => 'image-sneakers-2',
+      'label_name' => 'Image Sneakers 2',
+      'label_set' => 'Set Image Sneakers 2',
+      'label_use' => 'Set Image Sneakers 2',
+      'post_type' => array( 'Sneakers' ),
+    );
+  
+    $featured_images[] = $args;
+  
+    return $featured_images;
+  });
+
+  add_filter( 'kdmfi_featured_images', function( $featured_images ) {
+    $args = array(
+      'id' => 'image-sneakers-3',
+      'label_name' => 'Image Sneakers 3',
+      'label_set' => 'Set Image Sneakers 3',
+      'label_use' => 'Set Image Sneakers 3',
+      'post_type' => array( 'Sneakers' ),
+    );
+  
+    $featured_images[] = $args;
+  
+    return $featured_images;
+  });
+
+  add_filter( 'kdmfi_featured_images', function( $featured_images ) {
+    $args = array(
+      'id' => 'image-sneakers-4',
+      'label_name' => 'Image Sneakers 4',
+      'label_set' => 'Set Image Sneakers 4',
+      'label_use' => 'Set Image Sneakers 4',
+      'post_type' => array( 'Sneakers' ),
+    );
+  
+    $featured_images[] = $args;
+  
+    return $featured_images;
+  });
+
 require_once('metaboxes/reduc.php');
 ReducMetaBox::register();
+
 
 ?>  
