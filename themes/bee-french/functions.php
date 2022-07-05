@@ -27,7 +27,30 @@ function montheme_document_title_parts($title)
     return $title;
 }
 
+function montheme_init()
+{
+    register_taxonomy('shoes', 'post', [
+        'labels' => [
+            'name' => 'Sneaker',
+            'singular_name'     => 'Sneaker',
+            'plural_name'       => 'Sneakers',
+            'search_items'      => 'Rechercher des Sneakers',
+            'all_items'         => 'Toutes les Sneakers',
+            'edit_item'         => 'Editer la Sneaker',
+            'update_item'       => 'Mettre à jour la Sneaker',
+            'add_new_item'      => 'Ajouter une nouvelle Sneaker',
+            'new_item_name'     => 'Ajouter une nouvelle Sneaker',
+            'menu_name'         => 'Shoes',
+        ],
+            'show_in_rest' => true,
+            'hierarchical' => true,
+            'show_admin_column' => true,
+            
+        ]);
+}
 
+
+add_action( 'init', 'montheme_init');
 
 add_action('wp_enqueue_scripts', 'montheme_register_assets');
 
