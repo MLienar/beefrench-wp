@@ -1,0 +1,20 @@
+.manage-column.column-thumbnail{
+    width: 25vh;
+}
+td{
+    img{
+        box-shadow: none;
+    }
+}
+.wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before, .components-external-link, label.components-base-control__label{
+    display: none
+}
+.kdmfi-add-media{
+    color: $color-primary;
+}
+
+.components-panel__body{
+    &:nth-child(1), &:nth-child(2){
+        display: none;
+    }
+}

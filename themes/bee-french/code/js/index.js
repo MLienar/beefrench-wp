@@ -1,6 +1,5 @@
 window.onload = function () {
-    // Carousel fiche produit
-    // Inter-change les images lorsque l'on click dessus 
+    $('button.components-button').innerHTML += "Description Chaussures";
     let compteur = 0;
     $('.one').click(function () {
         if (compteur > 0) {
