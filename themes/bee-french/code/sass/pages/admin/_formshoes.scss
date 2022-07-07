@@ -1,0 +1,36 @@
+.cd_metaboxe{
+    display: flex;
+    align-items: baseline;
+    text-align: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    h4{
+        margin: 1.5% 0;
+    }
+    .wrap_cd_radio_reduc{
+        width: clamp(210px, 20%, 250px);
+        .cd_radio_reduc{
+            display: flex;
+            flex-wrap: wrap;
+            
+            justify-content: space-between;
+            gap: 10px;
+            margin: 1% 0;
+            align-items: center;
+        }
+    }
+    .wrap_cd_number_prix{
+        width: 50%;
+        .cd_number_prix{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            label{
+                margin-bottom: 2%;
+            }
+        }
+    }
+    
+    
+}

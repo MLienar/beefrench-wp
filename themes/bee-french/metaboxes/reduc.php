@@ -12,7 +12,7 @@ class ReducMetaBox {
 
     public static function add ($postType, $post) {
         if ($postType === 'post' && current_user_can('publish_posts', $post)) {
-            add_meta_box(self::META_KEY, 'Réduction', [self::class, 'render'], 'post', 'side');
+            add_meta_box(self::META_KEY, 'Réduction', [self::class, 'render'], 'sneakers', 'side');
         }
     }
 

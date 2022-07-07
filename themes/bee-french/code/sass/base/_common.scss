@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap');
 *{
   box-sizing: border-box;
 }
@@ -63,4 +64,15 @@ p{
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+
+body.wp-admin{
+  font-family: 'Montserrat', sans-serif;
+  h1, h2, h3{
+    font-weight: bold;
+  }
+  h4, h5, h6, li, .wp-menu-name{
+    font-weight: 600;
+  }
 }

@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap");
 html,
 body,
 div,
@@ -215,6 +216,16 @@ p {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+body.wp-admin {
+  font-family: "Montserrat", sans-serif;
+}
+body.wp-admin h1, body.wp-admin h2, body.wp-admin h3 {
+  font-weight: bold;
+}
+body.wp-admin h4, body.wp-admin h5, body.wp-admin h6, body.wp-admin li, body.wp-admin .wp-menu-name {
+  font-weight: 600;
 }
 
 .hero {
@@ -525,7 +536,13 @@ td img {
   box-shadow: none;
 }
 
-.wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before, .components-external-link, label.components-base-control__label {
+.wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before,
+.components-external-link, label.components-base-control__label,
+#slugdiv, .handle-order-higher,
+.handle-order-lower,
+#Sexe-adder,
+#Rubrique-adder,
+#wpfooter {
   display: none;
 }
 
@@ -533,8 +550,42 @@ td img {
   color: #901c1c;
 }
 
-.components-panel__body:nth-child(1), .components-panel__body:nth-child(2) {
+.components-panel:nth-child(2) {
   display: none;
+}
+
+.cd_metaboxe {
+  display: flex;
+  align-items: baseline;
+  text-align: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.cd_metaboxe h4 {
+  margin: 1.5% 0;
+}
+.cd_metaboxe .wrap_cd_radio_reduc {
+  width: clamp(210px, 20%, 250px);
+}
+.cd_metaboxe .wrap_cd_radio_reduc .cd_radio_reduc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 1% 0;
+  align-items: center;
+}
+.cd_metaboxe .wrap_cd_number_prix {
+  width: 50%;
+}
+.cd_metaboxe .wrap_cd_number_prix .cd_number_prix {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.cd_metaboxe .wrap_cd_number_prix .cd_number_prix label {
+  margin-bottom: 2%;
 }
 
 .wrap_all_produit {
@@ -645,6 +696,10 @@ td img {
   height: 100%;
   transition: all 0.7s;
   overflow: hidden;
+}
+.wrap_all_produit .wrap_cd_produit .cd_produit .overlay_produit_1 img {
+  width: 100%;
+  height: 100%;
 }
 .wrap_all_produit .wrap_cd_produit .cd_produit .overlay_produit_2 {
   opacity: 0;

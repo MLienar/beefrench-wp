@@ -4,7 +4,14 @@
  * Template Name: Page Produits 
  */
 
-get_header() ?>
+get_header();
+
+$term = get_term_by('id', '5', 'statut');
+$sneakers = new WP_query(array(
+    'post_type' => 'Sneakers',
+    'posts_per_page' => '9'
+));
+?>
 
 
 <main>
@@ -20,24 +27,23 @@ get_header() ?>
             <?= get_search_form(); ?>
         </div>
         <div class="wrap_cd_produit">
-            <?php while (have_posts()) : the_post(); ?>
+        <?php while($sneakers->have_posts()): $sneakers->the_post(); ?>
                 <div class="cd_produit">
                     <?php the_post_thumbnail('post-thumbnail', ['class' => 'img_produit', 'alt' => 'AF1 Custom', 'data-aos' => 'fade-up', 'data-aos-easing' => 'ease-out-cubic']) ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/code/images/png/af1.png" alt="AF1 CUSTOM" data-aos="fade-up" data-aos-easing="ease-out-cubic" class="img_produit">
                     <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic"><?php the_title(); ?></h3>
                     <?php the_excerpt() . "€"; ?>
                     <div class="overlay_produit_1">
-                        <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
+                        <?php kdmfi_the_featured_image( 'image-Survol'); ?>
                     </div>
                     <div class="overlay_produit_2">
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        <p><?php the_excerpt() . "€"; ?></p>
+                        <p><?php echo (get_post_meta($post->ID,'reduction',true) . "€"); ?></p>
                     </div>
                 </div>
             <?php endwhile; ?>
-            
+
         </div>
-        <?php  the_posts_pagination(); ?>
+        <?php the_posts_pagination(); ?>
     </section>
     <section id="cd_contenu_index">
         <div class="contenu_index_5">
