@@ -682,6 +682,7 @@ td img {
   width: 100%;
   box-shadow: none;
   margin-bottom: 5%;
+  object-fit: contain;
 }
 .wrap_all_produit .wrap_cd_produit .cd_produit h3 {
   font-weight: 550;

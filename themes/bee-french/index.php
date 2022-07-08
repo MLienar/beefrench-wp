@@ -31,13 +31,13 @@ $sneakers = new WP_query(array(
                 <div class="cd_produit">
                     <?php the_post_thumbnail('post-thumbnail', ['class' => 'img_produit', 'alt' => 'AF1 Custom', 'data-aos' => 'fade-up', 'data-aos-easing' => 'ease-out-cubic']) ?>
                     <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic"><?php the_title(); ?></h3>
-                    <?php the_excerpt() . "€"; ?>
+                    <p><?php echo (get_post_meta($post->ID,'prix',true) . "€"); ?></p>
                     <div class="overlay_produit_1">
                         <?php kdmfi_the_featured_image( 'image-Survol'); ?>
                     </div>
                     <div class="overlay_produit_2">
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        <p><?php echo (get_post_meta($post->ID,'reduction',true) . "€"); ?></p>
+                        <p><?php echo (get_post_meta($post->ID,'prix',true) . "€"); ?></p>
                     </div>
                 </div>
             <?php endwhile; ?>
