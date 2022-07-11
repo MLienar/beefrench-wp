@@ -1,0 +1,43 @@
+.wrap_grille_img{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .grille_image_produit{
+        width: 60%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        img{
+            width: 21%;
+            box-shadow: none;
+            height: 120px;
+            &:nth-child(1){
+                width: 100%;
+                height: fit-content;
+                object-fit: contain;
+            }
+        }
+    }
+    .cd_form_fiche_produit{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        h2{
+            font-size: clamp(40px, 4vw, 50px);
+            font-weight: 700;
+            padding-top: 15%;
+        }
+        .info_fiche_produit{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 5%;
+        }
+        p{
+            &:nth-child(3){
+                align-self: flex-start;
+            }
+        }
+    }
+}

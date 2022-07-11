@@ -10,8 +10,10 @@ function montheme_supports()
 
 function montheme_register_assets()
 {
-    wp_register_style('style', get_stylesheet_directory_uri() . '/code/public/css/style.css', []);
-    wp_register_script('main', get_stylesheet_directory_uri() . '/code/js/index.js', ['jquery']);
+   
+    
+    wp_register_style('style', get_stylesheet_directory_uri() . '/code/public/css/style.css', [], false, true);
+    wp_register_script('main', get_stylesheet_directory_uri() . '/code/js/index.js', ['jquery'], false, true);
     wp_deregister_script('jquery');
     wp_register_script('jquery', 'https://code.jquery.com/jquery-3.6.0.slim.min.js', [], false, true);
     wp_enqueue_style('style');

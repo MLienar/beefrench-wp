@@ -1,0 +1,20 @@
+.fil_arianne{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .back_arianne{
+        display: flex;
+        width: 70px;
+        justify-content: space-between;
+    }
+    nav{ 
+        width: 180px;
+        ol{
+            display: flex;
+            justify-content: space-between;
+            li.active{
+                color: $color-primary;
+            }
+        }
+    }
+}

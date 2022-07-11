@@ -6,11 +6,13 @@
 
 get_header();
 
-$term = get_term_by('id', '5', 'statut');
-$sneakers = new WP_query(array(
-    'post_type' => 'Sneakers',
-    'posts_per_page' => '9'
-));
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+ $args=array(
+ 'post_type' => 'sneakers',
+'posts_per_page' => 9,
+ 'paged'=>$paged
+ );
+ query_posts($args);
 ?>
 
 
@@ -27,7 +29,7 @@ $sneakers = new WP_query(array(
             <?= get_search_form(); ?>
         </div>
         <div class="wrap_cd_produit">
-        <?php while($sneakers->have_posts()): $sneakers->the_post(); ?>
+        <?php while(have_posts()): the_post(); ?>
                 <div class="cd_produit">
                     <?php the_post_thumbnail('post-thumbnail', ['class' => 'img_produit', 'alt' => 'AF1 Custom', 'data-aos' => 'fade-up', 'data-aos-easing' => 'ease-out-cubic']) ?>
                     <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic"><?php the_title(); ?></h3>
@@ -41,7 +43,7 @@ $sneakers = new WP_query(array(
                     </div>
                 </div>
             <?php endwhile; ?>
-
+            
         </div>
         <?php the_posts_pagination(); ?>
     </section>
@@ -61,7 +63,6 @@ $sneakers = new WP_query(array(
             <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-delay="100">
         </div>
     </section>
-
 
 </main>
 
