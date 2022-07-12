@@ -780,11 +780,13 @@ td img {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: space-between;
 }
 .wrap_grille_img .cd_form_fiche_produit h2 {
   font-size: clamp(40px, 4vw, 50px);
   font-weight: 700;
   padding-top: 15%;
+  color: black;
 }
 .wrap_grille_img .cd_form_fiche_produit .info_fiche_produit {
   display: flex;
@@ -794,6 +796,58 @@ td img {
 }
 .wrap_grille_img .cd_form_fiche_produit p:nth-child(3) {
   align-self: flex-start;
+  margin-bottom: -15%;
+}
+.wrap_grille_img .cd_form_fiche_produit form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.wrap_grille_img .cd_form_fiche_produit form .taille_check {
+  width: 100%;
+  display: grid;
+  height: 120px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: end;
+  margin-top: 15%;
+}
+.wrap_grille_img .cd_form_fiche_produit form .taille_check input[type=radio].taille_radio {
+  display: none;
+}
+.wrap_grille_img .cd_form_fiche_produit form .taille_check input[type=radio].taille_radio + label {
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 4px solid #E7F3F3;
+  background-color: transparent;
+  transition: all 0.25s ease-in-out;
+  outline: 1px solid black;
+  cursor: pointer;
+}
+.wrap_grille_img .cd_form_fiche_produit form .taille_check input[type=radio].taille_radio + label:hover {
+  color: #901c1c;
+}
+.wrap_grille_img .cd_form_fiche_produit form .cd_form_button {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.wrap_grille_img .cd_form_fiche_produit form .cd_form_button select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 4px solid #E7F3F3;
+  background-color: transparent;
+  transition: all 0.25s ease-in-out;
+  outline: 1px solid black;
+  cursor: pointer;
+}
+.wrap_grille_img .cd_form_fiche_produit form .cd_form_button input[type=button] {
+  background-color: black;
+  color: white;
+  padding: clamp(8px, 4%, 12px) clamp(22px, 11%, 35px);
 }
 
 .fil_arianne {
@@ -801,13 +855,13 @@ td img {
   justify-content: space-between;
   align-items: center;
 }
-.fil_arianne .back_arianne {
+.fil_arianne .back_arianne a {
   display: flex;
   width: 70px;
   justify-content: space-between;
 }
 .fil_arianne nav {
-  width: 180px;
+  width: fit-content;
 }
 .fil_arianne nav ol {
   display: flex;

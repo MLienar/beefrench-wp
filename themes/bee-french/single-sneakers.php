@@ -4,22 +4,20 @@
     <?php if (have_posts()) : the_post(); ?>
         <section class="fil_arianne">
             <div class="back_arianne">
-                <a href="#">
+                <a href="<?= get_site_url('produits', '/produits'); ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
                     </svg>
-                </a>
-                <a href="#">
                     <p>BACK</p>
                 </a>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?= get_home_url(); ?>">Home</a></li>
-                    <li>/</li>
-                    <li class="breadcrumb-item"><a href="<?= get_site_url('produits', '/produits'); ?>">Library</a></li>
-                    <li>/</li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    <li class="breadcrumb-item"><a href="<?= get_home_url(); ?>"> Home </a></li>
+                    <li> / </li>
+                    <li class="breadcrumb-item"><a href="<?= get_site_url('produits', '/produits'); ?>"> Shoes </a></li>
+                    <li> / </li>
+                    <li class="breadcrumb-item active" aria-current="page"> <?php the_title(); ?> </li>
                 </ol>
             </nav>
         </section>
@@ -36,50 +34,50 @@
                 <h2><?php the_title(); ?></h2>
                 <div class="info_fiche_produit">
                     <p>HOMME</p>
-                    <p><?php echo (get_post_meta($post->ID,'prix',true) . "€"); ?></p>
+                    <p><?php echo (get_post_meta($post->ID, 'prix', true) . "€"); ?></p>
                 </div>
                 <p>TAILLES DISPONIBLES</p>
                 <form action="#">
                     <div class="taille_check">
                         <div>
-                            <input type="radio" name="taille_checkbox" id="" value="38" checked>
-                            <label for="38">38</label>
+                            <input type="radio" name="taille_radio" class="taille_radio checkclass" id="" value="38" checked>
+                            <label for="38" class="checkclass">38</label>
                         </div>
                         <div>
-                            <input type="radio" name="taille_checkbox" id="" value="39">
-                            <label for="39">39</label>
+                            <input type="radio" name="taille_radio" class="taille_radio checkclass" id="" value="39">
+                            <label for="39" class="checkclass">39</label>
                         </div>
                         <div>
-                            <input type="radio" name="taille_checkbox" id="" value="40">
-                            <label for="40">40</label>
+                            <input type="radio" name="taille_radio" class="taille_radio checkclass" id="" value="40">
+                            <label for="40" class="checkclass">40</label>
                         </div>
                         <div>
-                            <input type="radio" name="taille_checkbox" id="" value="41" disabled>
-                            <label for="41">41</label>
+                            <input type="radio" name="taille_radio" class="taille_radio checkclass" id="" value="41">
+                            <label for="41" class="checkclass">41</label>
                         </div>
                         <div>
-                            <input type="radio" name="taille_checkbox" id="" value="42">
-                            <label for="42">42</label>
+                            <input type="radio" name="taille_radio" class="taille_radio checkclass" id="" value="42">
+                            <label for="42" class="checkclass">42</label>
                         </div>
                         <div>
-                            <input type="radio" name="taille_checkbox" id="" value="43">
-                            <label for="43">43</label>
+                            <input type="radio" name="taille_radio" class="taille_radio checkclass" id="" value="43">
+                            <label for="43" class="checkclass">43</label>
                         </div>
                         <div>
-                            <input type="radio" name="taille_checkbox" id="" value="44" disabled>
-                            <label for="44">44</label>
+                            <input type="radio" name="taille_radio" class="taille_radio checkclass" id="" value="44">
+                            <label for="44" class="checkclass">44</label>
                         </div>
                         <div>
-                            <input type="radio" name="taille_checkbox" id="" value="45">
-                            <label for="45">45</label>
+                            <input type="radio" name="taille_radio" class="taille_radio checkclass" id="" value="45">
+                            <label for="45" class="checkclass">45</label>
                         </div>
                         <div>
-                            <input type="radio" name="taille_checkbox" id="" value="46">
-                            <label for="46">46</label>
+                            <input type="radio" name="taille_radio" class="taille_radio checkclass" id="" value="46">
+                            <label for="46" class="checkclass">46</label>
                         </div>
                         <div>
-                            <input type="radio" name="taille_checkbox" id="" value="47" disabled>
-                            <label for="47">47</label>
+                            <input type="radio" name="taille_radio" class="taille_radio checkclass" id="" value="47">
+                            <label for="47" class="checkclass">47</label>
                         </div>
                     </div>
                     <div class="cd_form_button">
@@ -102,6 +100,13 @@
                     </div>
                 </form>
             </div>
+        </section>
+        <section class="cd_commentaire">
+            <?php
+            if (comments_open() || get_comments_number()) {
+                comments_template();
+            }
+            ?>
         </section>
     <?php else : ?>
     <?php endif;

@@ -3,12 +3,14 @@
     justify-content: space-between;
     align-items: center;
     .back_arianne{
-        display: flex;
-        width: 70px;
-        justify-content: space-between;
+        a{
+            display: flex;
+            width: 70px;
+            justify-content: space-between;
+        }
     }
     nav{ 
-        width: 180px;
+        width: fit-content;
         ol{
             display: flex;
             justify-content: space-between;

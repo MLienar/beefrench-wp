@@ -1,35 +1,4 @@
 window.onload = function () {
-    $('button.components-button').innerHTML += "Description Chaussures";
-    let compteur = 0;
-    $('.one').click(function () {
-        if (compteur > 0) {
-            $('.one').removeClass('one');
-            $(this).removeClass();
-            $(this).addClass('one');
-        }
-    });
-    $('.two').click(function () {
-        compteur = compteur + 1;
-        $('.one').addClass('two');
-        $('.one').removeClass('one');
-        $(this).addClass('one');
-        $('.two').removeClass('two');
-    });
-    $('.three').click(function () {
-        compteur = compteur + 1;
-        $('.one').addClass('three');
-        $('.one').removeClass('one');
-        $(this).addClass('one');
-        $('.three').removeClass('three');
-    });
-    $('.four').click(function () {
-        compteur = compteur + 1;
-        $('.one').addClass('four');
-        $('.one').removeClass('one');
-        $(this).addClass('one');
-        $('.four').removeClass('four');
-    });
-
 
     let menu = gsap.timeline({ ease: "power4.inOut", paused:true, reversed: true});
         menu.to(".header2", { duration: 0.5, opacity: 1, y: 0, delay: -1});
