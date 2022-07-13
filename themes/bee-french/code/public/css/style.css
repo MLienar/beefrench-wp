@@ -750,8 +750,17 @@ td img {
 .pagination .nav-links .current {
   color: #901c1c;
 }
-.pagination .nav-links .next, .pagination .nav-links .prev {
+.pagination .nav-links a.next, .pagination .nav-links a.prev {
   margin: 2%;
+}
+
+.page-numbers {
+  color: #901c1c;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.depth-2 {
+  margin-left: 5%;
 }
 
 .wrap_grille_img {

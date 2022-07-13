@@ -102,11 +102,11 @@
             </div>
         </section>
         <section class="cd_commentaire">
-            <?php
+        <?php
             if (comments_open() || get_comments_number()) {
                 comments_template();
             }
-            ?>
+        ?>
         </section>
     <?php else : ?>
     <?php endif;

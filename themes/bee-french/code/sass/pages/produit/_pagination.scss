@@ -12,10 +12,18 @@
         .current{
             color: $color-primary;
         }
-        .next, .prev{
+        a.next, a.prev{
             margin: 2%;
         }
-    }
-    
-    
+    } 
+}
+
+// pagination comments
+.page-numbers{
+    color: $color-primary;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.depth-2{
+    margin-left: 5%;
 }

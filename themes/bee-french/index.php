@@ -4,11 +4,14 @@
  * Template Name: Page Produits 
  */
 
+$_name = $_GET['s'];
+
 get_header();
 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
  $args=array(
  'post_type' => 'sneakers',
+ 's'             =>  $_name, 
 'posts_per_page' => 9,
  'paged'=>$paged
  );
@@ -26,7 +29,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     tempore, molestiae corrupti ad repellendus cumque nesciunt eius mollitia consectetur
                     perspiciatis. Itaque adipisci officiis inventore odit.</p>
             </div>
-            <?= get_search_form(); ?>
+            <?php get_template_part( 'advanced', 'searchform' ); ?>
         </div>
         <div class="wrap_cd_produit">
         <?php while(have_posts()): the_post(); ?>

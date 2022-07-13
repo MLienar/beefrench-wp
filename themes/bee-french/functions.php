@@ -10,13 +10,13 @@ function montheme_supports()
 
 function montheme_register_assets()
 {
-   
-    
-    wp_register_style('style', get_stylesheet_directory_uri() . '/code/public/css/style.css', [], false, true);
+    wp_register_style('style', get_stylesheet_directory_uri() . '/code/public/css/style.css', ['bulma'], false, true);
+    wp_register_style('bulma', get_stylesheet_directory_uri() . '/code/public/css/bulma.min.css');
     wp_register_script('main', get_stylesheet_directory_uri() . '/code/js/index.js', ['jquery'], false, true);
     wp_deregister_script('jquery');
     wp_register_script('jquery', 'https://code.jquery.com/jquery-3.6.0.slim.min.js', [], false, true);
     wp_enqueue_style('style');
+    wp_enqueue_style('bulma');
     wp_enqueue_script('main');
 }
 
@@ -77,7 +77,7 @@ function montheme_types()
         'public' => true,
         'menu_position' => 3,
         'menu_icon' => get_template_directory_uri() . '/code/images/png/af1_logo.png',
-        'supports' => ['title', 'thumbnail'],
+        'supports' => ['title', 'thumbnail', 'comments'],
         'show_in_rest' => true,
         'has_archive' => true,
         ''
@@ -299,3 +299,20 @@ function add_multiple_fields($post)
     </div>
 <?php
 }
+function search_sneakers($template)   
+{    
+  global $wp_query;   
+  $post_type = get_query_var('post_type');   
+  if( $wp_query->is_search && $post_type == 'sneakers' )   
+  {
+    return locate_template('index.php');  //  redirect to archive-search.php
+  }   
+  return $template;   
+}
+add_filter('template_include', 'search_sneakers');
+
+add_filter('comment_form_default_fields', function($fields){
+    $fields['email'] ='<div class="field"><label class="label">Email</label><div class="control has-icons-left has-icons-right"><input class="input is-danger" type="email" placeholder="Email input" value="hello@"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span><span class="icon is-small is-right"><i class="fas fa-exclamation-triangle"></i></span></div><p class="help is-danger">This email is invalid</p></div>';
+    var_dump($fields);
+    return $fields;
+});
