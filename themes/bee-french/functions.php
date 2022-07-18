@@ -10,14 +10,23 @@ function montheme_supports()
 
 function montheme_register_assets()
 {
-    wp_register_style('style', get_stylesheet_directory_uri() . '/code/public/css/style.css', ['bulma'], false, true);
-    wp_register_style('bulma', get_stylesheet_directory_uri() . '/code/public/css/bulma.min.css');
-    wp_register_script('main', get_stylesheet_directory_uri() . '/code/js/index.js', ['jquery'], false, true);
+    
+    wp_register_style('style', get_stylesheet_directory_uri() . '/code/public/css/style.css');
+    wp_register_style('locomotivecss', get_stylesheet_directory_uri() . '/code/public/css/locomotive-scroll.css');
+    wp_register_style('boostrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css');
+    wp_register_script('locomotivejs', get_stylesheet_directory_uri() . '/code/js/locomotive-scroll.min.js');
+    wp_register_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js');
+    wp_register_script('main', get_stylesheet_directory_uri() . '/code/js/index.js');
     wp_deregister_script('jquery');
-    wp_register_script('jquery', 'https://code.jquery.com/jquery-3.6.0.slim.min.js', [], false, true);
+    wp_register_script('jquery', 'https://code.jquery.com/jquery-3.6.0.slim.min.js');
+    wp_enqueue_style('boostrap');
+    wp_enqueue_style('locomotivecss');
     wp_enqueue_style('style');
-    wp_enqueue_style('bulma');
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('gsap');
+    wp_enqueue_script('locomotivejs');
     wp_enqueue_script('main');
+ 
 }
 
 function montheme_title_separator()
@@ -33,7 +42,7 @@ function montheme_document_title_parts($title)
 
 function montheme_init()
 {
-    register_taxonomy('Sexe', 'sneakers', [
+    register_taxonomy('Sexe', array('sneakers', 'apparel'), [
         'labels' => [
             'name' => 'Sexe',
             'singular_name'     => 'Sexe',
@@ -50,7 +59,7 @@ function montheme_init()
         'hierarchical' => true,
         'show_admin_column' => true,
     ]);
-    register_taxonomy('Rubrique', 'sneakers', [
+    register_taxonomy('Rubrique', array('sneakers', 'apparel'), [
         'labels' => [
             'name' => 'Rubrique',
             'singular_name'     => 'Rubrique',
@@ -82,9 +91,22 @@ function montheme_types()
         'has_archive' => true,
         ''
     ]);
+    register_post_type('Apparel', [
+        'label' => 'Apparel',
+        'public' => true,
+        'menu_position' => 2,
+        'menu_icon' => get_template_directory_uri() . '/code/images/png/t-shirt-24.png',
+        'supports' => ['title', 'thumbnail', 'comments'],
+        'show_in_rest' => true,
+        'has_archive' => true,
+        ''
+    ]);
 }
 
+
 add_action('init', 'montheme_init');
+
+add_action('init', 'montheme_types');
 
 add_action('init', 'montheme_types');
 
@@ -103,7 +125,7 @@ add_filter('kdmfi_featured_images', function ($featured_images) {
         'label_name' => 'Image Survol',
         'label_set' => 'Set Image Survol',
         'label_use' => 'Set Image Survol',
-        'post_type' => array('Sneakers'),
+        'post_type' => array('Sneakers', 'Apparel'),
     );
 
     $featured_images[] = $args;
@@ -117,7 +139,7 @@ add_filter('kdmfi_featured_images', function ($featured_images) {
         'label_name' => 'Image Sneakers 1',
         'label_set' => 'Set Image Sneakers 1',
         'label_use' => 'Set Image Sneakers 1',
-        'post_type' => array('Sneakers'),
+        'post_type' => array('Sneakers', 'Apparel'),
     );
 
     $featured_images[] = $args;
@@ -131,7 +153,7 @@ add_filter('kdmfi_featured_images', function ($featured_images) {
         'label_name' => 'Image Sneakers 2',
         'label_set' => 'Set Image Sneakers 2',
         'label_use' => 'Set Image Sneakers 2',
-        'post_type' => array('Sneakers'),
+        'post_type' => array('Sneakers', 'Apparel'),
     );
 
     $featured_images[] = $args;
@@ -145,7 +167,7 @@ add_filter('kdmfi_featured_images', function ($featured_images) {
         'label_name' => 'Image Sneakers 3',
         'label_set' => 'Set Image Sneakers 3',
         'label_use' => 'Set Image Sneakers 3',
-        'post_type' => array('Sneakers'),
+        'post_type' => array('Sneakers', 'Apparel'),
     );
 
     $featured_images[] = $args;
@@ -159,7 +181,7 @@ add_filter('kdmfi_featured_images', function ($featured_images) {
         'label_name' => 'Image Sneakers 4',
         'label_set' => 'Set Image Sneakers 4',
         'label_use' => 'Set Image Sneakers 4',
-        'post_type' => array('Sneakers'),
+        'post_type' => array('Sneakers', 'Apparel'),
     );
 
     $featured_images[] = $args;
@@ -183,6 +205,23 @@ add_filter('manage_sneakers_posts_custom_column', function ($column, $postId) {
         the_post_thumbnail('medium', $postID);
     }
 }, 10, 2);
+
+add_filter('manage_apparel_posts_columns', function ($columns) {
+    return [
+        'cb' => $columns['cb'],
+        'thumbnail' => "Image Vitrine 1",
+        'title' => $columns['title'],
+        'date' => $columns['date']
+    ];
+});
+
+
+add_filter('manage_apparel_posts_custom_column', function ($column, $postId) {
+    if ($column === 'thumbnail') {
+        the_post_thumbnail('medium', $postID);
+    }
+}, 10, 2);
+
 
 wp_enqueue_style('admin_montheme', get_stylesheet_directory_uri() . '/code/public/css/style.css');
 
@@ -213,7 +252,7 @@ function metabox_mutiple_fields()
         'diwp-metabox-multiple-fields',
         'Prix',
         'add_multiple_fields',
-        'sneakers'
+        array('sneakers', 'apparel')
     );
 }
 
@@ -293,7 +332,7 @@ function add_multiple_fields($post)
             </div>
             <div class="cd_number_prix">
                 <label for="prix">Prix</label>
-                <input id="prix" type="number" name="prix" required min="100" max="5000" value="<?= $prix ?>" />
+                <input id="prix" type="number" name="prix" required min="5" max="5000" value="<?= $prix ?>" />
             </div>
         </div>
     </div>
@@ -305,14 +344,27 @@ function search_sneakers($template)
   $post_type = get_query_var('post_type');   
   if( $wp_query->is_search && $post_type == 'sneakers' )   
   {
-    return locate_template('index.php');  //  redirect to archive-search.php
+    return locate_template('index.php');
   }   
   return $template;   
 }
 add_filter('template_include', 'search_sneakers');
 
+function search_apparel($template)   
+{    
+  global $wp_query;   
+  $post_type = get_query_var('post_type');   
+  if( $wp_query->is_search && $post_type == 'apparel' )   
+  {
+    return locate_template('apparel.php'); 
+  }   
+  return $template;   
+}
+add_filter('template_include', 'search_apparel');
+
+
 add_filter('comment_form_default_fields', function($fields){
-    $fields['email'] ='<div class="field"><label class="label">Email</label><div class="control has-icons-left has-icons-right"><input class="input is-danger" type="email" placeholder="Email input" value="hello@"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span><span class="icon is-small is-right"><i class="fas fa-exclamation-triangle"></i></span></div><p class="help is-danger">This email is invalid</p></div>';
-    var_dump($fields);
+    $fields['email'] ='<div class="mb-3"><label for="exampleInputEmail1" class="form-label">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><div id="emailHelp" class="form-text">We ll never share your email with anyone else.</div></div>';
+    
     return $fields;
 });

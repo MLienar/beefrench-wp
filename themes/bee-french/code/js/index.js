@@ -1,41 +1,11 @@
-(function() {
-    var scroll = new LocomotiveScroll({
+
+window.onload = function () {
+    (function() {
+        const scroll = new LocomotiveScroll({
         el: document.querySelector('[data-scroll-container]'),
         smooth: true
-    });
-})();
-window.onload = function () {
-    // Carousel fiche produit
-    // Inter-change les images lorsque l'on click dessus 
-    let compteur = 0;
-    $('.one').click(function () {
-        if (compteur > 0) {
-            $('.one').removeClass('one');
-            $(this).removeClass();
-            $(this).addClass('one');
-        }
-    });
-    $('.two').click(function () {
-        compteur = compteur + 1;
-        $('.one').addClass('two');
-        $('.one').removeClass('one');
-        $(this).addClass('one');
-        $('.two').removeClass('two');
-    });
-    $('.three').click(function () {
-        compteur = compteur + 1;
-        $('.one').addClass('three');
-        $('.one').removeClass('one');
-        $(this).addClass('one');
-        $('.three').removeClass('three');
-    });
-    $('.four').click(function () {
-        compteur = compteur + 1;
-        $('.one').addClass('four');
-        $('.one').removeClass('one');
-        $(this).addClass('one');
-        $('.four').removeClass('four');
-    });
+        });
+    })();
 
 
     let menu = gsap.timeline({ ease: "power4.inOut", paused:true, reversed: true});

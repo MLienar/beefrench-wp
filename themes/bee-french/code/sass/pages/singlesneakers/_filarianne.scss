@@ -17,6 +17,9 @@
             li.active{
                 color: $color-primary;
             }
+            .urlpost{
+                text-transform: capitalize;
+            }
         }
     }
 }

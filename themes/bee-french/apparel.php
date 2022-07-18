@@ -1,46 +1,21 @@
 <?php
 
 /**
- * Template Name: Page Produits 
+ * Template Name: Apparel Page
  */
 
-if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
-{
-    $url = "https";
-}
-else
-{
-    $url = "http"; 
-}  
-$url .= "://"; 
-$url .= $_SERVER['HTTP_HOST']; 
-$url .= $_SERVER['REQUEST_URI']; 
-$urlname = explode("/", $url);
-$urlpost = $urlname[3];
 $_name = $_GET['s'];
 
-if ($urlpost === 'apparel'){
-    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    $args=array(
-    'post_type' => 'apparel',
-    's'             =>  $_name, 
-    'posts_per_page' => 9,
-    'paged'=>$paged
-    );
-    query_posts($args);
-}
-else{
-    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    $args=array(
-    'post_type' => 'sneakers',
-    's'             =>  $_name, 
-    'posts_per_page' => 9,
-    'paged'=>$paged
-    );
-    query_posts($args);
-}
+get_header();
 
- get_header();
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+ $args=array(
+ 'post_type' => 'apparel',
+ 's'             =>  $_name, 
+'posts_per_page' => 9,
+ 'paged'=>$paged
+ );
+ query_posts($args);
 ?>
 
 
@@ -54,7 +29,7 @@ else{
                     tempore, molestiae corrupti ad repellendus cumque nesciunt eius mollitia consectetur
                     perspiciatis. Itaque adipisci officiis inventore odit.</p>
             </div>
-            <?php get_template_part( 'sneakers', 'searchform' ); ?>
+            <?php get_template_part( 'apparel', 'searchform' ); ?>
         </div>
         <div class="wrap_cd_produit">
         <?php while(have_posts()): the_post(); ?>
@@ -91,7 +66,5 @@ else{
             <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-delay="100">
         </div>
     </section>
-
 </main>
-
 <?php get_footer() ?>

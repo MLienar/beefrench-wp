@@ -56,11 +56,6 @@
                     </ul>
                 </div>
             </section>
-            <a class="arrow-up top1" href="#top">
-                <span class="left-arm"></span>
-                <span class="right-arm"></span>
-                <span class="arrow-slide"></span>
-            </a>
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
