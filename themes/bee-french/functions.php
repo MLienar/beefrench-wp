@@ -364,7 +364,22 @@ add_filter('template_include', 'search_apparel');
 
 
 add_filter('comment_form_default_fields', function($fields){
-    $fields['email'] ='<div class="mb-3"><label for="exampleInputEmail1" class="form-label">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><div id="emailHelp" class="form-text">We ll never share your email with anyone else.</div></div>';
-    
+    $fields['email'] ='<div class="mb-3"><label for="exampleInputEmail1" class="form-label">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required ><div id="emailHelp" class="form-text">We ll never share your email with anyone else.</div></div>';
+    $fields['cookies'] = '<div class="mb-3 form-check"><input type="checkbox" class="form-check-input" id="exampleCheck1"><label class="form-check-label" for="exampleCheck1"> Save my name and email in this browser for the next time I comment.</label></div>';
+    $fields['url'] = '';
+    $fields['author'] = '<div class="mb-3"><label for="exampleInputName1" class="form-label">Name</label><input type="text" class="form-control" id="exampleInputName1" aria-describedby="namelHelp" required ></div>';
     return $fields;
 });
+
+add_filter('pre_get_posts', 'query_post_type');
+function query_post_type($query) {
+  if(is_category() || is_tag() || is_home() && empty( $query->query_vars['suppress_filters'] ) ) {
+    $post_type = get_query_var('post_type');
+    if($post_type)
+        $post_type = $post_type;
+    else
+        $post_type = array('post','Sneakers'); //Poterie étant mon custom post type
+    $query->set('post_type',$post_type);
+    return $query;
+	  }
+}

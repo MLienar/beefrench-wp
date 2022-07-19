@@ -1,7 +1,10 @@
 .fil_arianne{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
+    @media screen and (max-width: 670px) {
+        margin-top: 10%;
+    } 
     .back_arianne{
         a{
             display: flex;

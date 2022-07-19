@@ -3,8 +3,19 @@
     <section class="hero">
         <article>
             <img src="<?php echo get_template_directory_uri(); ?>/code/images/png/af1.png" alt="AF1 Custom">
-            <h1 class="custom_title">CUSTOM</h1>
-            <h1 class="af1_title">AF1</h1>
+            <h1 class="custom_title">
+                    <div data-scroll data-scroll-speed="6">C</div>
+                    <div data-scroll data-scroll-speed="5">U</div>
+                    <div data-scroll data-scroll-speed="4">S</div>
+                    <div data-scroll data-scroll-speed="3">T</div>
+                    <div data-scroll data-scroll-speed="2">O</div>
+                    <div data-scroll data-scroll-speed="1" class="last_letter">M</div>
+            </h1>
+            <h1 class="af1_title">
+                    <div data-scroll data-scroll-speed="1">A</div>
+                    <div data-scroll data-scroll-speed="2">F</div>
+                    <div data-scroll data-scroll-speed="3">1</div>
+            </h1>
             <img class="hero_img img1" src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom1.jpeg"
                 alt="AF1 Custom">
             <img class="hero_img img2"

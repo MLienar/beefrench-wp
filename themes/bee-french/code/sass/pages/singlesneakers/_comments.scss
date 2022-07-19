@@ -1,0 +1,8 @@
+.cd_commentaire{
+    margin-top: 15%;
+    input.button_comments{
+        background-color: black;
+        color: white;
+        padding: clamp(8px, 4%, 12px) clamp(22px, 11%, 35px);
+    }
+}

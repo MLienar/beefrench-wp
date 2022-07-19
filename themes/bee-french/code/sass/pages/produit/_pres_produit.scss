@@ -9,18 +9,31 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        @media screen and (max-width: 670px) {
+            flex-direction: column;
+            align-items: center;
+        } 
         .txt_prod{
             width: clamp(350px, 50%, 1500px);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
+            @media screen and (max-width: 670px) {
+                align-items: center;
+                h3{
+                    text-align: center;
+                }  
+            } 
         }
         form {
             position: relative;
             width: 10rem;
             background: #57bd84;
             border-radius: .5rem;
+            @media screen and (max-width: 670px) {
+                margin-top: 5%;
+            } 
             input, button {
                 height: 2rem;
                 border: 0;

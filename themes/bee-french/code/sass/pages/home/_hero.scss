@@ -1,3 +1,5 @@
+$compteurmargin: 100;
+$compteurmargin2: 20;
 .hero{
     display: flex;
     align-items: center;
@@ -16,6 +18,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        overflow: visible;
         height: clamp(300px, 60vh, 900px);
         @media screen and (max-width: 770px) {
             height: 40vh; 
@@ -78,11 +81,44 @@
             }
             .custom_title{
                 position: absolute;
+                display: flex;
+                justify-content: space-between;
                 z-index: 2;
                 top: calc(60% - 14vw);
                 color: rgb(160, 53, 53);
                 left: calc(10% + 3vw);
-                @media screen and (max-width: 1600) {
+                overflow: visible;
+                padding-top: 400px;
+                margin-top: -400px;
+                div{     
+                    @for $i from 1 through 5 {
+                        &:nth-child(#{$i}){
+                            @media screen and (max-width: 5000px) {
+                                $compteurmargin: $compteurmargin - 10;
+                                margin-bottom: 0px - $compteurmargin;
+                            }
+                            @media screen and (max-width: 1500px) {
+                                $compteurmargin: $compteurmargin - 20;
+                                margin-bottom: 0px - $compteurmargin;
+                            } 
+                            @media screen and (max-width: 800px) {
+                                $compteurmargin: $compteurmargin - 10;
+                                margin-bottom: 0px - $compteurmargin;
+                            } 
+                            @media screen and (max-width: 600px) {
+                                margin-bottom: 0;
+                            }   
+                        }  
+                    }  
+                }
+                .last_letter{
+                    margin-bottom: 10px;
+                    @media screen and (max-width: 600px) {
+                        margin-bottom: 0;
+                    }    
+                }
+
+                @media screen and (max-width: 1600px) {
                     top: calc(50% - 14vw);
                 }
                 @media screen and (max-width: 800px) {
@@ -94,12 +130,40 @@
             }
             .af1_title{
                 position: absolute;
+                display: flex;
+                justify-content: space-between;
                 text-align: right;
                 z-index: 2;
                 color: rgb(53, 153, 160);
                 bottom: 10%;
                 left: 50%;
                 clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+                padding-top: 400px;
+                margin-top: -400px;
+                div{     
+                        &:nth-child(2){
+                            @media screen and (max-width: 5000px) {                          
+                                margin-top: -20px;
+                            }
+                            @media screen and (max-width: 1500px) {       
+                                margin-top: -20px;
+                            } 
+                            @media screen and (max-width: 800px) {
+                                margin-top: 0;
+                            }  
+                        } 
+                        &:nth-child(3){
+                            @media screen and (max-width: 5000px) {                          
+                                margin-top: -35px;
+                            }
+                            @media screen and (max-width: 1500px) {       
+                                margin-top: -35px;
+                            } 
+                            @media screen and (max-width: 800px) {
+                                margin-top: 0;
+                            }  
+                        }  
+                }
                 @media screen and (min-width: 500px) and (max-width: 770px) {
                     bottom: 5%;
                 }
