@@ -122,8 +122,8 @@
         <div class="wrap_cd_produit">
             <?php while ($sneakers->have_posts()) : $sneakers->the_post(); ?>
                 <div class="cd_produit">
-                    <?php the_post_thumbnail('post-thumbnail', ['class' => 'img_produit', 'alt' => 'AF1 Custom', 'data-aos' => 'fade-up', 'data-aos-easing' => 'ease-out-cubic']) ?>
-                    <h3 data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-out-cubic"><?php the_title(); ?></h3>
+                    <?php the_post_thumbnail('post-thumbnail', ['class' => 'img_produit', 'alt' => 'AF1 Custom']) ?>
+                    <h3><?php the_title(); ?></h3>
                     <p><?php echo (get_post_meta($post->ID, 'prix', true) . "€"); ?></p>
                     <div class="overlay_produit_1">
                         <?php kdmfi_the_featured_image('image-Survol'); ?>
@@ -138,18 +138,18 @@
     </section>
     <section id="cd_contenu_index">
         <div class="contenu_index_5">
-            <div class="sous_div_contenu_5" data-aos="fade-up-right" data-aos-easing="ease-out-cubic">
-                <h3 data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-delay="150">vous avez une
+            <div class="sous_div_contenu_5">
+                <h3>vous avez une
                     idée précise en
                     tête ?</h3>
-                <p data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-delay="200">Décrivez nous la
+                <p>Décrivez nous la
                     paire de vos
                     rêves en détails et nous vous ferons une proposition de design
                     parfaitement adaptée à vos besoins</p>
-                <button data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-delay="250">CREATION SUR
+                <button>CREATION SUR
                     MESURE</button>
             </div>
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-delay="100">
+            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom4.jpeg" alt="AF1 Custom">
         </div>
     </section>
 
