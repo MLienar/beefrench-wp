@@ -724,7 +724,9 @@ td img {
 .handle-order-lower,
 #Sexe-adder,
 #Rubrique-adder,
-#wpfooter {
+#wpfooter,
+#screen-meta-links,
+#edit-slug-box {
   display: none;
 }
 
@@ -734,6 +736,10 @@ td img {
 
 .components-panel:nth-child(2) {
   display: none;
+}
+
+#commentstatusdiv {
+  visibility: hidden;
 }
 
 .cd_metaboxe {

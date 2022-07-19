@@ -12,7 +12,10 @@ td{
 .handle-order-lower, 
 #Sexe-adder, 
 #Rubrique-adder,
-#wpfooter{
+#wpfooter,
+#screen-meta-links,
+#edit-slug-box
+{
     display: none
 }
 .kdmfi-add-media{
@@ -24,3 +27,6 @@ td{
     }
 }
 
+#commentstatusdiv{
+    visibility: hidden;
+}

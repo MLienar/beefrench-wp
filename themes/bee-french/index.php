@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Page Produits 
+ * Template Name: Page Shoes
  */
 
 if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
