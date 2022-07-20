@@ -10,23 +10,26 @@ function montheme_supports()
 
 function montheme_register_assets()
 {
-    
+
     wp_register_style('style', get_stylesheet_directory_uri() . '/code/public/css/style.css');
     wp_register_style('locomotivecss', get_stylesheet_directory_uri() . '/code/public/css/locomotive-scroll.css');
     wp_register_style('boostrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css');
     wp_register_script('locomotivejs', get_stylesheet_directory_uri() . '/code/js/locomotive-scroll.min.js');
     wp_register_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js');
     wp_register_script('main', get_stylesheet_directory_uri() . '/code/js/index.js');
+    wp_register_script('frontpage', get_stylesheet_directory_uri() . '/code/js/front-page.js');
     wp_deregister_script('jquery');
     wp_register_script('jquery', 'https://code.jquery.com/jquery-3.6.0.slim.min.js');
     wp_enqueue_style('boostrap');
-    wp_enqueue_style('locomotivecss');
     wp_enqueue_style('style');
     wp_enqueue_script('jquery');
     wp_enqueue_script('gsap');
-    wp_enqueue_script('locomotivejs');
     wp_enqueue_script('main');
- 
+    if( is_front_page() ) {
+    	wp_enqueue_script('frontpage');
+        wp_enqueue_script('locomotivejs');
+        wp_enqueue_style('locomotivecss');
+    }
 }
 
 function montheme_title_separator()
@@ -38,44 +41,6 @@ function montheme_document_title_parts($title)
 {
     unset($title['tagline']);
     return $title;
-}
-
-function montheme_init()
-{
-    register_taxonomy('Sexe', array('sneakers', 'apparel'), [
-        'labels' => [
-            'name' => 'Sexe',
-            'singular_name'     => 'Sexe',
-            'plural_name'       => 'Sexes',
-            'search_items'      => 'Rechercher des Sexes',
-            'all_items'         => 'Tous les Sexes',
-            'edit_item'         => 'Editer le Sexe',
-            'update_item'       => 'Mettre à jour le Sexe',
-            'add_new_item'      => 'Ajouter un nouveau Sexe',
-            'new_item_name'     => 'Ajouter un nouveau Sexe',
-            'menu_name'         => 'Sexe',
-        ],
-        'show_in_rest' => true,
-        'hierarchical' => true,
-        'show_admin_column' => true,
-    ]);
-    register_taxonomy('Rubrique', array('sneakers', 'apparel'), [
-        'labels' => [
-            'name' => 'Rubrique',
-            'singular_name'     => 'Rubrique',
-            'plural_name'       => 'Rubriques',
-            'search_items'      => 'Rechercher des Rubriques',
-            'all_items'         => 'Tous les Rubriques',
-            'edit_item'         => 'Editer la Rubrique',
-            'update_item'       => 'Mettre à jour la Rubrique',
-            'add_new_item'      => 'Ajouter une nouvelle Rubrique',
-            'new_item_name'     => 'Ajouter une nouvelle Rubrique',
-            'menu_name'         => 'Rubrique',
-        ],
-        'show_in_rest' => true,
-        'hierarchical' => true,
-        'show_admin_column' => true,
-    ]);
 }
 
 
@@ -103,8 +68,6 @@ function montheme_types()
     ]);
 }
 
-
-add_action('init', 'montheme_init');
 
 add_action('init', 'montheme_types');
 
@@ -231,6 +194,7 @@ wp_enqueue_script('admin_montheme', get_stylesheet_directory_uri() . '/code/js/c
 
 
 
+
 function save_metaboxes_reduction($post_ID)
 {
     if (isset($_POST['reduction'])) {
@@ -245,6 +209,13 @@ function save_metaboxes_prix($post_ID)
     }
 }
 
+function save_metaboxes_sexe($post_ID)
+{
+    if (isset($_POST['sexe'])) {
+        update_post_meta($post_ID, 'sexe', esc_html($_POST['sexe']));
+    }
+}
+
 function metabox_mutiple_fields()
 {
 
@@ -255,18 +226,41 @@ function metabox_mutiple_fields()
         array('sneakers', 'apparel')
     );
 }
-
+function montheme_register_rubrique() {
+    register_taxonomy('rubrique', array('apparel', 'sneakers'), [
+        'labels' => [
+            'name' => 'rubrique',
+            'singular_name'     => 'rubrique',
+            'plural_name'       => 'rubriques',
+            'search_items'      => 'Rechercher des rubriques',
+            'all_items'         => 'Tous les rubriques',
+            'edit_item'         => 'Editer la rubrique',
+            'update_item'       => 'Mettre à jour la rubrique',
+            'add_new_item'      => 'Ajouter une nouvelle rubrique',
+            'new_item_name'     => 'Ajouter une nouvelle rubrique',
+            'menu_name'         => 'rubrique',
+        ],
+        'show_in_rest' => true,
+        'hierarchical' => true,
+        'show_admin_column' => true,
+    ]);
+}
+add_action('init', 'montheme_register_rubrique');
 add_action('add_meta_boxes', 'metabox_mutiple_fields');
 add_action('save_post', 'save_metaboxes_reduction');
 add_action('save_post', 'save_metaboxes_prix');
+add_action('save_post', 'save_metaboxes_sexe');
 
 function add_multiple_fields($post)
 {
-
     $reduc = get_post_meta($post->ID, 'reduction', true);
     $prix = get_post_meta($post->ID, 'prix', true);
+    $sexe = get_post_meta($post->ID, 'sexe', true);
     if (isset($_POST['reduction'])) {
         update_post_meta($post_ID, 'reduction', esc_html($_POST['reduction']));
+    }
+    if (isset($_POST['sexe'])) {
+        update_post_meta($post_ID, 'sexe', esc_html($_POST['sexe']));
     }
 ?>
     <div class="cd_metaboxe">
@@ -326,45 +320,59 @@ function add_multiple_fields($post)
             </div>
         </div>
 
-        <div class="wrap_cd_number_prix">
+        <div class="wrap_cd_fields">
             <div class="label">
                 <h4>Checkbox Fields</h4>
             </div>
-            <div class="cd_number_prix">
+            <div class="cd_number_fields">
                 <label for="prix">Prix</label>
                 <input id="prix" type="number" name="prix" required min="5" max="5000" value="<?= $prix ?>" />
+            </div>
+        </div>
+
+        <div class="wrap_cd_fields">
+        <div class="label">
+                <h4>Sexe</h4>
+            </div>
+            <div class="cd_fields">
+                <div>
+                <label for="sexe">Homme</label>
+                <input id="sexe" type="checkbox" name="sexe" value="homme" <?php checked($sexe, 'homme') ?> />
+                </div>
+                <div>
+                <label for="sexe">Femme</label>
+                <input id="sexe" type="checkbox" name="sexe" value="femme" <?php checked($sexe, 'femme') ?> />
+                </div>
             </div>
         </div>
     </div>
 <?php
 }
-function search_sneakers($template)   
-{    
-  global $wp_query;   
-  $post_type = get_query_var('post_type');   
-  if( $wp_query->is_search && $post_type == 'sneakers' )   
-  {
-    return locate_template('index.php');
-  }   
-  return $template;   
+function search_sneakers($template)
+{
+    global $wp_query;
+    $post_type = get_query_var('post_type');
+    if ($wp_query->is_search && $post_type == 'sneakers') {
+        return locate_template('index.php');
+    }
+    return $template;
 }
 add_filter('template_include', 'search_sneakers');
 
-function search_apparel($template)   
-{    
-  global $wp_query;   
-  $post_type = get_query_var('post_type');   
-  if( $wp_query->is_search && $post_type == 'apparel' )   
-  {
-    return locate_template('apparel.php'); 
-  }   
-  return $template;   
+function search_apparel($template)
+{
+    global $wp_query;
+    $post_type = get_query_var('post_type');
+    if ($wp_query->is_search && $post_type == 'apparel') {
+        return locate_template('apparel.php');
+    }
+    return $template;
 }
 add_filter('template_include', 'search_apparel');
 
 
-add_filter('comment_form_default_fields', function($fields){
-    $fields['email'] ='<div class="mb-3"><label for="exampleInputEmail1" class="form-label">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required ><div id="emailHelp" class="form-text">We ll never share your email with anyone else.</div></div>';
+add_filter('comment_form_default_fields', function ($fields) {
+    $fields['email'] = '<div class="mb-3"><label for="exampleInputEmail1" class="form-label">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required ><div id="emailHelp" class="form-text">We ll never share your email with anyone else.</div></div>';
     $fields['cookies'] = '<div class="mb-3 form-check"><input type="checkbox" class="form-check-input" id="exampleCheck1"><label class="form-check-label" for="exampleCheck1"> Save my name and email in this browser for the next time I comment.</label></div>';
     $fields['url'] = '';
     $fields['author'] = '<div class="mb-3"><label for="exampleInputName1" class="form-label">Name</label><input type="text" class="form-control" id="exampleInputName1" aria-describedby="namelHelp" required ></div>';
@@ -372,14 +380,15 @@ add_filter('comment_form_default_fields', function($fields){
 });
 
 add_filter('pre_get_posts', 'query_post_type');
-function query_post_type($query) {
-  if(is_category() || is_tag() || is_home() && empty( $query->query_vars['suppress_filters'] ) ) {
-    $post_type = get_query_var('post_type');
-    if($post_type)
-        $post_type = $post_type;
-    else
-        $post_type = array('post','Sneakers'); //Poterie étant mon custom post type
-    $query->set('post_type',$post_type);
-    return $query;
-	  }
+function query_post_type($query)
+{
+    if (is_category() || is_tag() || is_home() && empty($query->query_vars['suppress_filters'])) {
+        $post_type = get_query_var('post_type');
+        if ($post_type)
+            $post_type = $post_type;
+        else
+            $post_type = array('post', 'Sneakers'); //Poterie étant mon custom post type
+        $query->set('post_type', $post_type);
+        return $query;
+    }
 }

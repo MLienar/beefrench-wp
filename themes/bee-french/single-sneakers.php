@@ -1,4 +1,8 @@
-<?php get_header() ?>
+<?php 
+get_header(); 
+$sexe = get_terms(['taxonomy' => 'Sexe']);
+?>
+
 
 <main>
     <?php if (have_posts()) : the_post(); ?>
@@ -33,7 +37,7 @@
             <div class="cd_form_fiche_produit">
                 <h2><?php the_title(); ?></h2>
                 <div class="info_fiche_produit">
-                    <p>HOMME</p>
+                    <p class="sexe"><?php echo (get_post_meta($post->ID, 'sexe', true)); ?></p>
                     <p><?php echo (get_post_meta($post->ID, 'prix', true) . "€"); ?></p>
                 </div>
                 <p>TAILLES DISPONIBLES</p>

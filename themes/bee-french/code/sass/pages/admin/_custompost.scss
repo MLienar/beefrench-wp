@@ -27,6 +27,17 @@ td{
     }
 }
 
+#rubrique-tabs{
+    li{
+        &:nth-child(2){
+            display: none;
+        }
+    }
+}
+
 #commentstatusdiv{
     visibility: hidden;
+}
+.ui-sortable-handle{
+    text-transform: capitalize;
 }

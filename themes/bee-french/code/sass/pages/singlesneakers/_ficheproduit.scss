@@ -47,6 +47,9 @@
             width: 100%;
             justify-content: space-between;
             padding: 5%;
+            .sexe{
+                text-transform: uppercase;
+            }
         }
         p{
             &:nth-child(3){
