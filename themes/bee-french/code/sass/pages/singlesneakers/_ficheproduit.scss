@@ -36,6 +36,9 @@
             text-align: center;
             align-items: center;
         } 
+        .postid{
+            visibility: hidden;
+        }
         h2{
             font-size: clamp(40px, 4vw, 50px);
             font-weight: 700;

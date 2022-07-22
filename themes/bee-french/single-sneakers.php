@@ -3,7 +3,6 @@ get_header();
 $sexe = get_terms(['taxonomy' => 'Sexe']);
 ?>
 
-
 <main>
     <?php if (have_posts()) : the_post(); ?>
         <section class="fil_arianne">
@@ -35,6 +34,7 @@ $sexe = get_terms(['taxonomy' => 'Sexe']);
 
             </div>
             <div class="cd_form_fiche_produit">
+                <p class="postid"><?= $post->ID; ?></p>
                 <h2><?php the_title(); ?></h2>
                 <div class="info_fiche_produit">
                     <p class="sexe"><?php echo (get_post_meta($post->ID, 'sexe', true)); ?></p>

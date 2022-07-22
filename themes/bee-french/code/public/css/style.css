@@ -1024,6 +1024,9 @@ td img {
     align-items: center;
   }
 }
+.wrap_grille_img .cd_form_fiche_produit .postid {
+  visibility: hidden;
+}
 .wrap_grille_img .cd_form_fiche_produit h2 {
   font-size: clamp(40px, 4vw, 50px);
   font-weight: 700;
@@ -1152,6 +1155,10 @@ td img {
 }
 .cd_commentaire #respond {
   margin-bottom: 5%;
+}
+
+.wrap_panier {
+  min-height: 100vh;
 }
 
 .cd_404error {
