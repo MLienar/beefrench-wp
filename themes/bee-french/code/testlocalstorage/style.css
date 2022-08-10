@@ -1,0 +1,116 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+body, section, footer, header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    padding: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section{
+    min-height: 40vh;  
+}
+
+#panier{
+    border: 1px solid black;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+footer, header{
+    background-color: wheat;
+    width: 100%;
+    height: 100px;
+}
+
+.separ_inutile{
+    width: 100%;
+    margin: 0;
+}
+
+
+#vrai_panier{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    border-radius: 0px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow:  50px 50px 100px #ededed,
+                 -50px -50px 100px #ffffff;
+    padding: 20px;
+    justify-content: space-between;
+    margin-block: 8%;
+}
+
+.cd_product{
+    display: flex;
+    padding: 20px;
+}
+
+.cd_product:nth-child(n+2){
+    border-top: 1px solid black;
+}
+
+.img_product{
+    width: 40%;
+    object-fit: cover;
+}
+
+.wrap_info{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    justify-content: space-between;
+}
+
+.cd_info_1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+} 
+
+.cd_end_basket{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 5%;
+    border-top: 1px solid black;
+    order: 1;
+}
+
+.cd_prix_total{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.btn_payer{
+    width: fit-content;
+    padding: 5px 30px;
+    color: white;
+    background-color: rgb(46, 173, 46);
+    border: none;
+}
+.prix_total{
+    margin-left: 5px;
+}

@@ -97,7 +97,9 @@
             .cd_form_button{
                 display: flex;
                 width: 100%;
-                justify-content: space-between;
+                justify-content: flex-end;
+                flex-wrap: wrap;
+                gap: 20px;
                 select {
                     padding: 0.5rem;
                     font-size: 1rem;
@@ -108,12 +110,38 @@
                     outline: 1px solid black;
                     cursor: pointer;
                 }
-                input[type="button"]{
-                    background-color: black;
+                .ajouter{
+                    width: 185px;
+                    background: black;
                     color: white;
-                    font-size: clamp(10px, 1.2vw, 1rem);
-                    padding: clamp(10px, 5%, 20px);
                     margin: 0;
+                    overflow: hidden;
+                    position: relative;
+                    height: 47px;
+                }
+                    p{
+                        font-size: clamp(10px, 1.2vw, 1rem);
+                    }
+                    .basket_icon{
+                        position: absolute;
+                        top: 10px;
+                        left: -50px;
+                        font-size: 25px;  
+                    }
+                    .sneakers_basket{
+                        width: 25px;
+                        position: absolute;
+                        top: -50px;
+                        left: 86px;
+                    }
+                    .addtocart{
+                        font-size: 25px;
+                        color: white;
+                        position: absolute;
+                        top: 10px;
+                        left: 80px;
+                        opacity: 0;
+                    }
                     @media screen and (max-width: 800px) {
                         margin-left: 15%;
                     }  
@@ -124,4 +152,3 @@
             }
         }
     }
-}

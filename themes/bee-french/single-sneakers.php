@@ -26,7 +26,7 @@ $sexe = get_terms(['taxonomy' => 'Sexe']);
         </section>
         <section class="wrap_grille_img">
             <div class="grille_image_produit">
-                <img src="<?= the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>" class="one">
+                <img src="<?= the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>" class="one img_product_basket<?= $post->ID; ?>">
                 <?php kdmfi_the_featured_image('image-Survol', ['class' => ' two']); ?>
                 <?php kdmfi_the_featured_image('image-sneakers-1', ['class' => ' three']); ?>
                 <?php kdmfi_the_featured_image('image-sneakers-2', ['class' => ' four']); ?>
@@ -34,11 +34,11 @@ $sexe = get_terms(['taxonomy' => 'Sexe']);
 
             </div>
             <div class="cd_form_fiche_produit">
-                <p class="postid"><?= $post->ID; ?></p>
-                <h2><?php the_title(); ?></h2>
+                <p class="postid id<?= $post->ID; ?>"><?= $post->ID; ?></p>
+                <h2 class="nom<?= $post->ID; ?>"><?php the_title(); ?></h2>
                 <div class="info_fiche_produit">
                     <p class="sexe"><?php echo (get_post_meta($post->ID, 'sexe', true)); ?></p>
-                    <p><?php echo (get_post_meta($post->ID, 'prix', true) . "€"); ?></p>
+                    <p class="prix<?= $post->ID; ?>"><?php echo (get_post_meta($post->ID, 'prix', true) . "€"); ?></p>
                 </div>
                 <p>TAILLES DISPONIBLES</p>
                 <form action="#">
@@ -100,7 +100,12 @@ $sexe = get_terms(['taxonomy' => 'Sexe']);
                                 <option value="10">10</option>
                             </select>
                         </div>
-                        <input type="button" value="Ajouter au panier">
+                        <button type="button" class="ajouter <?= $post->ID; ?>">
+                            <p class="p_button">Ajouter au panier</p>
+                            <i class="bi bi-cart2 basket_icon"></i>
+                            <img src="<?php echo get_template_directory_uri(); ?>/code/images/png/icons8-baskets-64.png" alt="sneakers" class="sneakers_basket">
+                            <i class="bi bi-check2 addtocart"></i>
+                        </button>
                     </div>
                 </form>
             </div>
