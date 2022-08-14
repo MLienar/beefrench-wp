@@ -5,6 +5,7 @@
 body{
     overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
+    background: #E7F3F3;
 }
 body, section, footer, header{
     display: flex;
@@ -21,17 +22,12 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 80vh;
+    justify-content: center;
 }
 
 section{
     min-height: 40vh;  
-}
-
-#panier{
-    border: 1px solid black;
-    width: 50%;
-    padding: 0;
-    margin: 0;
 }
 
 footer, header{
@@ -40,77 +36,44 @@ footer, header{
     height: 100px;
 }
 
-.separ_inutile{
-    width: 100%;
-    margin: 0;
-}
 
-
-#vrai_panier{
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    border-radius: 0px;
-    border-radius: 10px;
+.form_pay{
+    box-sizing: border-box;
+    width: 600px;
+    background-color: antiquewhite;
+    padding: 30px;
+    border-radius: 15px;
     background: #ffffff;
-    box-shadow:  50px 50px 100px #ededed,
-                 -50px -50px 100px #ffffff;
-    padding: 20px;
-    justify-content: space-between;
-    margin-block: 8%;
+    box-shadow:  50px 50px 100px #d9e4e4,
+                -50px -50px 100px #f5ffff;
 }
-
-.cd_product{
-    display: flex;
-    padding: 20px;
+@media screen and (max-width: 600px) {
+    .form_pay{
+        width: 300px;
+    }
 }
-
-.cd_product:nth-child(n+2){
-    border-top: 1px solid black;
-}
-
-.img_product{
-    width: 40%;
-    object-fit: cover;
-}
-
-.wrap_info{
-    display: flex;
-    flex-direction: column;
-    padding-left: 20px;
-    justify-content: space-between;
-}
-
-.cd_info_1{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-} 
-
-.cd_end_basket{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding-top: 5%;
-    border-top: 1px solid black;
-    order: 1;
-}
-
-.cd_prix_total{
+.form-row{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
 }
 
-.btn_payer{
-    width: fit-content;
-    padding: 5px 30px;
-    color: white;
-    background-color: rgb(46, 173, 46);
-    border: none;
+.cc{
+    width: 45%;
 }
-.prix_total{
-    margin-left: 5px;
+
+.form-group{
+    margin-block: 15px;
+}
+
+.cd_button_pay{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form_pay input[type='button']{
+    padding-inline: 40px;
+    background: #39a22f;
+    border: none;
+    color: white;
 }

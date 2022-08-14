@@ -8,10 +8,10 @@
         flex-direction: column;
         width: 70%;
         border-radius: 0px;
-        border-radius: 10px;
+        border-radius: 15px;
         background: #ffffff;
-        box-shadow:  50px 50px 100px #ededed,
-                     -50px -50px 100px #ffffff;
+        box-shadow:  50px 50px 100px #d9e4e4,
+                    -50px -50px 100px #f5ffff;
         padding: 20px;
         justify-content: space-between;
         margin-block: 8%; 
@@ -78,6 +78,7 @@
             display: flex;
             width: 100%;
             justify-content: space-between;
+            flex-direction: column;
             padding-top: 5%;
             border-top: 1px solid black;
             order: 1;
@@ -86,22 +87,42 @@
                 align-items: center;
                 gap: 15px;
             }
-            .cd_prix_total{
+            .form-row{
                 display: flex;
                 justify-content: space-between;
                 align-items: baseline;
-                .prix_total{
-                    margin-left: 5px;
-                }
-            }
-            .btn_payer{
-                width: fit-content;
-                padding: 5px 30px;
-                color: white;
-                background-color: rgb(46, 173, 46);
-                border: none;
             }
             
+            .cc{
+                width: 45%;
+            }
+            
+            .form-group{
+                margin-block: 15px;
+            }
+            
+            .cd_button_pay{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                align-items: baseline;
+                .btn_payer{
+                    padding-inline: 40px;
+                    padding-block: 10px;
+                    background: $green;
+                    border: none;
+                    color: white;
+                }
+                .cd_prix_total{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    .prix_total{
+                        margin-left: 5px;
+                    }
+                }
+            }
+
         }
     }
 }

@@ -22,6 +22,8 @@ function montheme_register_assets()
     wp_register_script('afficher_panier', get_stylesheet_directory_uri() . '/code/js/afficher_panier.js');
     wp_deregister_script('jquery');
     wp_register_script('jquery', 'https://code.jquery.com/jquery-3.6.0.slim.min.js');
+    wp_register_script('jquery_paiement', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.1/jquery.payment.min.js');
+    wp_register_script('stripe', 'https://js.stripe.com/v3/');
     wp_enqueue_style('boostrap');
     wp_enqueue_style('style');
     wp_enqueue_script('jquery');
@@ -33,7 +35,10 @@ function montheme_register_assets()
         wp_enqueue_style('locomotivecss');
     }
     if ( is_page(176) ){
+        wp_enqueue_script('stripe');
     	wp_enqueue_script('afficher_panier');
+        wp_enqueue_script('jquery_paiement');
+        
     }
     if ( is_single() && 'sneakers' == get_post_type() || 'apparel' == get_post_type()) {
     	wp_enqueue_script('basket');

@@ -1,6 +1,5 @@
 
 window.onload = function () {
-
     let menu = gsap.timeline({ ease: "power4.inOut", paused: true, reversed: true });
     menu.to(".header2", { duration: 0.5, opacity: 1, y: 0, delay: -1 });
     menu.to(".dark_overlay_header", { duration: 0.5, opacity: 1, y: 0, delay: -1 });

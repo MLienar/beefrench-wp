@@ -1196,9 +1196,9 @@ td img {
   flex-direction: column;
   width: 70%;
   border-radius: 0px;
-  border-radius: 10px;
+  border-radius: 15px;
   background: #ffffff;
-  box-shadow: 50px 50px 100px #ededed, -50px -50px 100px #ffffff;
+  box-shadow: 50px 50px 100px #d9e4e4, -50px -50px 100px #f5ffff;
   padding: 20px;
   justify-content: space-between;
   margin-block: 8%;
@@ -1270,6 +1270,7 @@ td img {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  flex-direction: column;
   padding-top: 5%;
   border-top: 1px solid black;
   order: 1;
@@ -1281,20 +1282,37 @@ td img {
     gap: 15px;
   }
 }
-.wrap_panier #vrai_panier .cd_end_basket .cd_prix_total {
+.wrap_panier #vrai_panier .cd_end_basket .form-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
-.wrap_panier #vrai_panier .cd_end_basket .cd_prix_total .prix_total {
-  margin-left: 5px;
+.wrap_panier #vrai_panier .cd_end_basket .cc {
+  width: 45%;
 }
-.wrap_panier #vrai_panier .cd_end_basket .btn_payer {
-  width: fit-content;
-  padding: 5px 30px;
-  color: white;
-  background-color: rgb(46, 173, 46);
+.wrap_panier #vrai_panier .cd_end_basket .form-group {
+  margin-block: 15px;
+}
+.wrap_panier #vrai_panier .cd_end_basket .cd_button_pay {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: baseline;
+}
+.wrap_panier #vrai_panier .cd_end_basket .cd_button_pay .btn_payer {
+  padding-inline: 40px;
+  padding-block: 10px;
+  background: #26c485;
   border: none;
+  color: white;
+}
+.wrap_panier #vrai_panier .cd_end_basket .cd_button_pay .cd_prix_total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.wrap_panier #vrai_panier .cd_end_basket .cd_button_pay .cd_prix_total .prix_total {
+  margin-left: 5px;
 }
 
 .cd_404error {
@@ -1457,7 +1475,7 @@ header nav ul li:nth-child(4) .check_basket {
   position: absolute;
   right: -20px;
   top: -20px;
-  background-color: rgb(62, 208, 94);
+  background-color: #26c485;
   border-radius: 50%;
   padding: 4.5px;
   color: white;

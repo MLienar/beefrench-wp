@@ -100,7 +100,6 @@ window.onload = function () {
     // Afficher le panier
     function afficherPanier() {
         let basket = getBasket();
-        console.log(basket);
         let total = 0;
         for (let product of basket) {
             total += product.quantity * product.price;
@@ -132,6 +131,8 @@ window.onload = function () {
             link_no_product.href = "http://beefrench.local/produits/"
 
             $('.cd_product').css({"flex-direction": "column"});
+
+            $('.cd_end_basket').css("display", "none");
     }
         if (quantite !== 0) {
             for (let product of basket) {
@@ -184,6 +185,10 @@ window.onload = function () {
                     p_nom.className = "panier_nom" + product.id;
                     h3_prix.className = "panier_prix" + product.id;
                     p_quantite.className = "quantite_produit" + product.id;
+
+                    $('.cc-number').formatCardNumber();
+                    $('.cc-expires').formatCardExpiry();
+                    $('.cc-cvc').formatCardCVC();
                 }
             }
             
@@ -216,4 +221,5 @@ window.onload = function () {
     }
 
     getQuantity();
+
 };      
