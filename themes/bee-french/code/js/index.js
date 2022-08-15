@@ -1,10 +1,11 @@
-(function() {
-    var scroll = new LocomotiveScroll({
-        el: $(".marges"),
-        smooth: true
-    })
-    console.log(scroll);
-})();
+const stripe = Stripe('pk_test_51LN3pjIHDK7tuN34yuWA75fiVVDjcwgStR76mRzc6GWRDXdVPC7JePrJ2QpJu9O7hJGtzOWamS6dvUvgIhz1k9wb00decLWXbb')
+var elements = stripe.elements({
+//   clientSecret: 'sk_test_51LN3pjIHDK7tuN34bMwilSdLCssg4fRq5koDGAVfCa4kzoArnFXOdoOt7LR7FtxY0uL7COpaGdHzMNbPzoXTQvg700dtKsUGFR',
+});
+
+const paymentEl = elements.create('payment')
+
+console.log(paymentEl);
 
 window.onload = function () {
     let menu = gsap.timeline({ ease: "power4.inOut", paused: true, reversed: true });
@@ -36,17 +37,15 @@ window.onload = function () {
         }
         if (quantite !== 0) {
             let panier = document.getElementById("vrai_panier");
-
-            let li_basket = document.getElementById('menu-item-177');
+            let li_basket = document.getElementById('menu-item-27');
+            if (!li_basket) return
             let check_basket = document.createElement("div");
             li_basket.appendChild(check_basket);
             check_basket.className = "check_basket";
-
             let p_check = document.createElement("p");
             check_basket.appendChild(p_check);
             p_check.innerHTML = quantite;
             p_check.className = "p_check";
-
         }
     }
 

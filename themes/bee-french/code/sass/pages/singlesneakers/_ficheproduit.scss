@@ -76,22 +76,24 @@
                 height: 120px;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
                 justify-items: end;
-                margin-top: 15%;
-                input[type="radio"].taille_radio {
-                    display: none;
-                }
-                input[type="radio"].taille_radio + label {
-                    padding: 0.5rem;
-                    font-size: 1rem;
-                    line-height: 1.5;
-                    border: 4px solid $background;
-                    background-color: transparent;
-                    transition: all 0.25s ease-in-out;
-                    outline: 1px solid black;
+                grid-gap: 5px;
+                margin: 20px 0 ;
+                .taille-checkbox {
+                    box-sizing: border-box;
+                    height: clamp(40px, 7vh, 80px);
+                    width: clamp(40px, 7vh, 80px);
+                    aspect-ratio: 1 / 1;
+                    border: 1px solid #000;
+                    display: flex;
+                    align-items: center;
                     cursor: pointer;
-                    &:hover{
-                        color: $color-primary;
-                    }
+                    justify-content: center;
+                }
+                .checked {
+                    background-color: black;
+                    color: white;
+                    border: 1px solid white;
+                    outline: 1px solid black;
                 }
             }
             .cd_form_button{

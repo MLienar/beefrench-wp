@@ -2,42 +2,37 @@ header {
     display: flex;
     justify-content: space-between;
     padding: clamp(10px, 3%, 50px) 0;
-    z-index: 999;
+    .logo {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
     nav {
-        width: 100%;
         display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        padding: 0;
         @media screen and (max-width: 550px) {
            align-items: flex-start;
         } 
         ul {
-            width: 100%;
             display: flex;
-            justify-content: space-between;
+            gap: 2em;
             list-style: none;
-            li{
-                &:nth-child(1){
-                    font-weight: bold;
-                    text-transform: uppercase;
-                }
-                &:nth-child(2){
-                    text-transform: capitalize;
-                    margin-left: calc(80% - 25vw);
-                }
-                &:nth-child(4){
-                    position: relative;
+            li:last-child {
+                display: flex;
+                align-items: center;
+                gap: 5px;
                     .check_basket{
-                        position: absolute;
-                        right: -20px;
-                        top: -20px;
-                        background-color: $green;
+                        right: -15px;
+                        top: -15px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: black;
+                        height: 15px;
+                        width: 15px;
+                        font-size: 10px;
                         border-radius: 50%;
                         padding: 4.5px;
                         color: white;
                     }
-                }
             }
             @media screen and (max-width: 550px) {
                 display: none;

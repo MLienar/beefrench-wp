@@ -48,6 +48,11 @@
                     justify-content: flex-start;
                     text-align: left;
                 } 
+                .cd_info_2{
+                    .input_qty{
+                        width: 40px;
+                    }
+                }
             }
             .enlever_div{
                 display: flex;
@@ -126,4 +131,3 @@
         }
     }
 }
-

@@ -1,29 +1,17 @@
 window.onload = function () {
 
-    function saveBasket(basket) {
-        localStorage.setItem("basket", JSON.stringify(basket));
-    };
-    function getBasket() {
-        let basket = localStorage.getItem("basket")
-        if (basket == undefined) {
-            return [];
-        }
-        else {
-            return JSON.parse(basket);
-        }
-    }
     // Ajouter
-    function addBasket(product) {
+    function addToBasket(product) {
+        console.log(product);
         let basket = getBasket();
-        let foundProduct = basket.find(p => p.nom == product.nom);
+        let foundProduct = basket.find(p => p.nom === product.nom && product.size === p.size);
         if (foundProduct != undefined) {
-            foundProduct.quantity++;
+            foundProduct.quantity += product.quantity
         }
         else {
-            product.quantity = 1;
             basket.push(product);
         }
-        saveBasket(basket);
+        localStorage.setItem("basket", JSON.stringify(basket));
     }
     $('.ajouter').click(function () {
 
@@ -35,8 +23,16 @@ window.onload = function () {
         let image_produit = $('.img_product_basket' + classajout).attr('src');
         num = parseInt(num);
         id_produit = parseInt(id_produit);
-        let product = { id: id_produit, nom: text, price: num, image: image_produit, quantity: 0 };
-        addBasket(product);
+        let taille = ""
+        let quantity = parseInt(document.getElementById("taille").value)
+        const radios = document.querySelectorAll(".taille-checkbox") 
+        radios.forEach(radio => {
+            if (radio.classList.contains("checked")) {
+                taille = radio.innerHTML
+            }
+        })
+        let product = { id: id_produit, nom: text, price: num, image: image_produit, quantity: quantity, size: taille };
+        addToBasket(product);
 
         let tl2 = gsap.timeline({ defaults: { ease: "power4.inOut" } })
         tl2.to('.p_button', { duration: 0.75, x: 500 }, "<0");
@@ -73,19 +69,93 @@ window.onload = function () {
         }
         if (quantite !== 0) {
             let panier = document.getElementById("vrai_panier");
-
-            let li_basket = document.getElementById('menu-item-177');
+            let li_basket = document.getElementById('menu-item-27');
+            if (!li_basket) return
             let check_basket = document.createElement("div");
             li_basket.appendChild(check_basket);
             check_basket.className = "check_basket";
-
             let p_check = document.createElement("p");
             check_basket.appendChild(p_check);
             p_check.innerHTML = quantite;
             p_check.className = "p_check";
-
+            // panier.appendChild()
         }
     }
 
     getQuantity();
+
+    const sizes = [
+    {
+    taille: 36,
+    disponible: true,
+    checked: false,
+    },
+    {
+    taille: 37,
+    disponible: true,
+    checked: false,
+    },
+    {
+    taille: 38,
+    disponible: true,
+    checked: false,
+    },
+    {
+    taille: 39,
+    disponible: true,
+    checked: false,
+    },
+    {
+    taille: 40,
+    disponible: true,
+    checked: false,
+    },{
+    taille: 41,
+    disponible: true,
+    checked: false,
+    },{
+    taille: 42,
+    disponible: true,
+    checked: false,
+    },{
+    taille: 43,
+    disponible: true,
+    checked: false,
+    },{
+    taille: 44,
+    disponible: true,
+    checked: false,
+    },{
+    taille: 45,
+    disponible: true,
+    checked: false,
+    },
+]
+
+const addToCart = (e) => {
+    const radios = document.querySelectorAll(".taille-checkbox")
+    radios.forEach(radio => {
+        if (radio.classList.contains("checked")) {
+            radio.classList.remove("checked")
+        }})
+    e.target.classList.add("checked")
+}
+
+
+const parentDiv = document.querySelector(".taille_check")
+function createSizeButtons () {
+    console.log("to");
+    for (const size of sizes) {
+        const container = document.createElement("div");
+        container.classList.add("taille-checkbox")
+        if (!size.disponible) {
+            container.classList.add("pas-dispo")
+        }
+        container.textContent = size.taille
+        container.addEventListener('click', addToCart)
+        parentDiv.appendChild(container)
+    }
+}
+createSizeButtons()
+
 };      

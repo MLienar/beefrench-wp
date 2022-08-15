@@ -25,17 +25,18 @@ function montheme_register_assets()
     wp_register_script('jquery_paiement', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.1/jquery.payment.min.js');
     wp_register_script('stripe', 'https://js.stripe.com/v3/');
     wp_enqueue_style('boostrap');
+    wp_enqueue_script('stripe');
     wp_enqueue_style('style');
     wp_enqueue_script('jquery');
     wp_enqueue_script('gsap');
     wp_enqueue_script('main');
+
     if( is_front_page() ) {
     	wp_enqueue_script('frontpage');
         wp_enqueue_script('locomotivejs');
         wp_enqueue_style('locomotivecss');
     }
-    if ( is_page(176) ){
-        wp_enqueue_script('stripe');
+    if ( is_page(16) ){
     	wp_enqueue_script('afficher_panier');
         wp_enqueue_script('jquery_paiement');
         
@@ -281,14 +282,66 @@ function add_multiple_fields($post)
         <div class="label">
             <h4>Réduction</h4>
         </div>
-        <<<<<<< Updated upstream <div class="wrap_cd_fields">
-            <div class="label">
-                <h4>Checkbox Fields</h4>
+        <div class="cd_radio_reduc">
+            <div>
+                <input type="radio" value="0" name="reduction" <?php checked($reduc, '0') ?>>
+                <label for="reduction">0%</label>
             </div>
-            <div class="cd_number_fields">
-                <label for="prix">Prix</label>
-                <input id="prix" type="number" name="prix" required min="5" max="5000" value="<?= $prix ?>" />
+            <div>
+                <input type="radio" value="5" name="reduction" <?php checked($reduc, '5') ?>>
+                <label for="reduction">5%</label>
             </div>
+            <div>
+                <input type="radio" value="10" name="reduction" <?php checked($reduc, '10') ?>>
+                <label for="reduction">10%</label>
+            </div>
+            <div>
+                <input type="radio" value="15" name="reduction" <?php checked($reduc, '15') ?>>
+                <label for="reduction">15%</label>
+            </div>
+            <div>
+                <input type="radio" value="20" name="reduction" <?php checked($reduc, '20') ?>>
+                <label for="reduction">20%</label>
+            </div>
+            <div>
+                <input type="radio" value="25" name="reduction" <?php checked($reduc, '25') ?>>
+                <label for="reduction">25%</label>
+            </div>
+            <div>
+                <input type="radio" value="30" name="reduction" <?php checked($reduc, '30') ?>>
+                <label for="reduction">30%</label>
+            </div>
+            <div>
+                <input type="radio" value="40" name="reduction" <?php checked($reduc, '40') ?>>
+                <label for="reduction">40%</label>
+            </div>
+            <div>
+                <input type="radio" value="45" name="reduction" <?php checked($reduc, '45') ?>>
+                <label for="reduction">45%</label>
+            </div>
+            <div>
+                <input type="radio" value="50" name="reduction" <?php checked($reduc, '50') ?>>
+                <label for="reduction">50%</label>
+            </div>
+            <div>
+                <input type="radio" value="60" name="reduction" <?php checked($reduc, '60') ?>>
+                <label for="reduction">60%</label>
+            </div>
+            <div>
+                <input type="radio" value="70" name="reduction" <?php checked($reduc, '70') ?>>
+                <label for="reduction">70%</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap_cd_fields">
+        <div class="label">
+            <h4>Checkbox Fields</h4>
+        </div>
+        <div class="cd_number_fields">
+            <label for="prix">Prix</label>
+            <input id="prix" type="number" name="prix" required min="5" max="5000" value="<?= $prix ?>" />
+        </div>
     </div>
 
     <div class="wrap_cd_fields">
@@ -304,71 +357,10 @@ function add_multiple_fields($post)
                 <label for="sexe">Femme</label>
                 <input id="sexe" type="checkbox" name="sexe" value="femme" <?php checked($sexe, 'femme') ?> />
             </div>
-            =======
-            <div class="cd_radio_reduc">
-                <div>
-                    <input type="radio" value="0" name="reduction" <?php checked($reduc, '0') ?>>
-                    <label for="reduction">0%</label>
-                </div>
-                <div>
-                    <input type="radio" value="5" name="reduction" <?php checked($reduc, '5') ?>>
-                    <label for="reduction">5%</label>
-                </div>
-                <div>
-                    <input type="radio" value="10" name="reduction" <?php checked($reduc, '10') ?>>
-                    <label for="reduction">10%</label>
-                </div>
-                <div>
-                    <input type="radio" value="15" name="reduction" <?php checked($reduc, '15') ?>>
-                    <label for="reduction">15%</label>
-                </div>
-                <div>
-                    <input type="radio" value="20" name="reduction" <?php checked($reduc, '20') ?>>
-                    <label for="reduction">20%</label>
-                </div>
-                <div>
-                    <input type="radio" value="25" name="reduction" <?php checked($reduc, '25') ?>>
-                    <label for="reduction">25%</label>
-                </div>
-                <div>
-                    <input type="radio" value="30" name="reduction" <?php checked($reduc, '30') ?>>
-                    <label for="reduction">30%</label>
-                </div>
-                <div>
-                    <input type="radio" value="40" name="reduction" <?php checked($reduc, '40') ?>>
-                    <label for="reduction">40%</label>
-                </div>
-                <div>
-                    <input type="radio" value="45" name="reduction" <?php checked($reduc, '45') ?>>
-                    <label for="reduction">45%</label>
-                </div>
-                <div>
-                    <input type="radio" value="50" name="reduction" <?php checked($reduc, '50') ?>>
-                    <label for="reduction">50%</label>
-                </div>
-                <div>
-                    <input type="radio" value="60" name="reduction" <?php checked($reduc, '60') ?>>
-                    <label for="reduction">60%</label>
-                </div>
-                <div>
-                    <input type="radio" value="70" name="reduction" <?php checked($reduc, '70') ?>>
-                    <label for="reduction">70%</label>
-                    >>>>>>> Stashed changes
-                </div>
-            </div>
-        </div>
-
-        <div class="wrap_cd_number_prix">
-            <div class="label">
-                <h4>Checkbox Fields</h4>
-            </div>
-            <div class="cd_number_prix">
-                <label for="prix">Prix</label>
-                <input id="prix" type="number" name="prix" required min="100" max="5000" value="<?= $prix ?>" />
-            </div>
         </div>
     </div>
-    <?php
+</div>
+<?php
 }
 function search_sneakers($template)
 {
@@ -402,7 +394,6 @@ add_filter('comment_form_default_fields', function ($fields) {
 });
 
 add_filter('pre_get_posts', 'query_post_type');
-
 function query_post_type($query)
 {
     if (is_category() || is_tag() || is_home() && empty($query->query_vars['suppress_filters'])) {
