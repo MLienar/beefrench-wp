@@ -276,11 +276,35 @@ function add_multiple_fields($post)
         update_post_meta($post_ID, 'sexe', esc_html($_POST['sexe']));
     }
 ?>
-    <div class="cd_metaboxe">
-        <div class="wrap_cd_radio_reduc">
+<div class="cd_metaboxe">
+    <div class="wrap_cd_radio_reduc">
+        <div class="label">
+            <h4>Réduction</h4>
+        </div>
+        <<<<<<< Updated upstream <div class="wrap_cd_fields">
             <div class="label">
-                <h4>Réduction</h4>
+                <h4>Checkbox Fields</h4>
             </div>
+            <div class="cd_number_fields">
+                <label for="prix">Prix</label>
+                <input id="prix" type="number" name="prix" required min="5" max="5000" value="<?= $prix ?>" />
+            </div>
+    </div>
+
+    <div class="wrap_cd_fields">
+        <div class="label">
+            <h4>Sexe</h4>
+        </div>
+        <div class="cd_fields">
+            <div>
+                <label for="sexe">Homme</label>
+                <input id="sexe" type="checkbox" name="sexe" value="homme" <?php checked($sexe, 'homme') ?> />
+            </div>
+            <div>
+                <label for="sexe">Femme</label>
+                <input id="sexe" type="checkbox" name="sexe" value="femme" <?php checked($sexe, 'femme') ?> />
+            </div>
+            =======
             <div class="cd_radio_reduc">
                 <div>
                     <input type="radio" value="0" name="reduction" <?php checked($reduc, '0') ?>>
@@ -329,37 +353,22 @@ function add_multiple_fields($post)
                 <div>
                     <input type="radio" value="70" name="reduction" <?php checked($reduc, '70') ?>>
                     <label for="reduction">70%</label>
+                    >>>>>>> Stashed changes
                 </div>
             </div>
         </div>
 
-        <div class="wrap_cd_fields">
+        <div class="wrap_cd_number_prix">
             <div class="label">
                 <h4>Checkbox Fields</h4>
             </div>
-            <div class="cd_number_fields">
+            <div class="cd_number_prix">
                 <label for="prix">Prix</label>
-                <input id="prix" type="number" name="prix" required min="5" max="5000" value="<?= $prix ?>" />
-            </div>
-        </div>
-
-        <div class="wrap_cd_fields">
-        <div class="label">
-                <h4>Sexe</h4>
-            </div>
-            <div class="cd_fields">
-                <div>
-                <label for="sexe">Homme</label>
-                <input id="sexe" type="checkbox" name="sexe" value="homme" <?php checked($sexe, 'homme') ?> />
-                </div>
-                <div>
-                <label for="sexe">Femme</label>
-                <input id="sexe" type="checkbox" name="sexe" value="femme" <?php checked($sexe, 'femme') ?> />
-                </div>
+                <input id="prix" type="number" name="prix" required min="100" max="5000" value="<?= $prix ?>" />
             </div>
         </div>
     </div>
-<?php
+    <?php
 }
 function search_sneakers($template)
 {
@@ -393,6 +402,7 @@ add_filter('comment_form_default_fields', function ($fields) {
 });
 
 add_filter('pre_get_posts', 'query_post_type');
+
 function query_post_type($query)
 {
     if (is_category() || is_tag() || is_home() && empty($query->query_vars['suppress_filters'])) {

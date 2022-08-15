@@ -324,7 +324,7 @@ body.wp-admin h4, body.wp-admin h5, body.wp-admin h6, body.wp-admin li, body.wp-
   justify-content: space-between;
   z-index: 2;
   top: calc(60% - 14vw);
-  color: rgb(160, 53, 53);
+  color: #a03535;
   left: calc(10% + 3vw);
   overflow: visible;
   padding-top: 400px;
@@ -459,7 +459,7 @@ body.wp-admin h4, body.wp-admin h5, body.wp-admin h6, body.wp-admin li, body.wp-
   justify-content: space-between;
   text-align: right;
   z-index: 2;
-  color: rgb(53, 153, 160);
+  color: #3599a0;
   bottom: 10%;
   left: 50%;
   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
@@ -572,7 +572,11 @@ body.wp-admin h4, body.wp-admin h5, body.wp-admin h6, body.wp-admin li, body.wp-
 #cd_contenu_index .contenu_index_2 .sous_div_contenu_2 img {
   width: 200%;
   position: absolute;
+<<<<<<< Updated upstream
   top: -70%;
+=======
+  top: -20%;
+>>>>>>> Stashed changes
 }
 #cd_contenu_index .contenu_index_2 .image_index_22 {
   width: 50%;
