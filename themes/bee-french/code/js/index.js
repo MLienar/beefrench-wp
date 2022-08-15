@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 (function() {
     var scroll = new LocomotiveScroll({
         el: $(".marges"),
@@ -7,7 +5,6 @@
     })
     console.log(scroll);
 })();
->>>>>>> Stashed changes
 
 window.onload = function () {
     let menu = gsap.timeline({ ease: "power4.inOut", paused: true, reversed: true });
