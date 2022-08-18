@@ -1,11 +1,12 @@
 window.onload = function () {
-    (function() {
-        const scroll = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
+
+    $('.top1').css("display", "none")
+
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('.marges'),
         smooth: true
-        });
-    })();
-        
+    });
+    
     // Joues avec les valeurs que j'ai mis entre guillemets
     // Je voyais un truc qui fasse un peu plus comme un fleur qui s'ouvre pour les photo si tu vois ce que je veux dire
 
@@ -32,38 +33,5 @@ window.onload = function () {
         let tl2 = gsap.timeline({ defaults: { ease: "power4.inOut"} })
         tl2.to('h1', { 'clip-path': 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', opacity: 1, y: 0, duration: 1, stagger: 0.5
         });
-
-        function getBasket(){
-            let basket = localStorage.getItem("basket")
-            if (basket == undefined){
-                return [];
-            }
-            else{
-                return JSON.parse(basket);
-            }
-        }
-        function getQuantity() {
-            let basket = getBasket();
-            let quantite = 0;
-            for (let product of basket) {
-                quantite += product.quantity;
-            }
-            if (quantite !== 0) {
-                let panier = document.getElementById("vrai_panier");
-    
-                let li_basket = document.getElementById('menu-item-177');
-                let check_basket = document.createElement("div");
-                li_basket.appendChild(check_basket);
-                check_basket.className = "check_basket";
-    
-                let p_check = document.createElement("p");
-                check_basket.appendChild(p_check);
-                p_check.innerHTML = quantite;
-                p_check.className = "p_check";
-    
-            }
-        }
-    
-        getQuantity();
 
 };

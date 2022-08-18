@@ -31,3 +31,5 @@ get_header();
         </form>
     </section>
 </main>
+
+<?php get_footer(); ?>

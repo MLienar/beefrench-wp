@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    @media screen and (max-width: 670px) {
+    @media screen and (max-width: 935px) {
         flex-direction: column;
         align-items: center;
     } 
@@ -11,7 +11,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 935px) {
             width: 100%;
         } 
         img{
@@ -31,7 +31,7 @@
         flex-direction: column;
         align-items: flex-end;
         justify-content: space-between;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 935px) {
             width: 70%;
             text-align: center;
             align-items: center;
@@ -58,7 +58,7 @@
             &:nth-child(3){
                 align-self: flex-start;
                 margin-bottom: -15%;
-                @media screen and (max-width: 800px) {
+                @media screen and (max-width: 935px) {
                     align-self: center;
                     margin-bottom: -5%;
                 } 
@@ -70,6 +70,7 @@
             flex-direction: column;
             align-items: flex-end;
             justify-content: space-between;
+            gap: 20px;
             .taille_check{
                 width: 100%;
                 display: grid;
@@ -78,6 +79,7 @@
                 justify-items: end;
                 grid-gap: 5px;
                 margin: 20px 0 ;
+                justify-content: center;
                 .taille-checkbox {
                     box-sizing: border-box;
                     height: clamp(40px, 7vh, 80px);
@@ -144,7 +146,7 @@
                         left: 80px;
                         opacity: 0;
                     }
-                    @media screen and (max-width: 800px) {
+                    @media screen and (max-width: 935px) {
                         margin-left: 15%;
                     }  
                     @media screen and (max-width: 670px) {

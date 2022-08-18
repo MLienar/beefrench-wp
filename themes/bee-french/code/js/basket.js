@@ -2,7 +2,6 @@ window.onload = function () {
 
     // Ajouter
     function addToBasket(product) {
-        console.log(product);
         let basket = getBasket();
         let foundProduct = basket.find(p => p.nom === product.nom && product.size === p.size);
         if (foundProduct != undefined) {
@@ -14,15 +13,24 @@ window.onload = function () {
         localStorage.setItem("basket", JSON.stringify(basket));
     }
     $('.ajouter').click(function () {
-
-        let classajout = $(this).attr('class');
+        let compteur = 0
+        const radios = document.querySelectorAll(".taille-checkbox")
+        radios.forEach(radio => {
+        if (radio.classList.contains("checked")) {
+            compteur = compteur + 1;
+        }})
+        if (compteur === 0){
+            alert('Veuillez sélectionner une taille')
+        }
+        else{
+            let classajout = $(this).attr('class');
         classajout = classajout.substr(8);
         let text = $('.nom' + classajout).html();
         let num = $('.prix' + classajout).html();
         let id_produit = $('.id' + classajout).html();
         let image_produit = $('.img_product_basket' + classajout).attr('src');
         num = parseInt(num);
-        id_produit = parseInt(id_produit);
+        id_produit = id_produit;
         let taille = ""
         let quantity = parseInt(document.getElementById("taille").value)
         const radios = document.querySelectorAll(".taille-checkbox") 
@@ -31,6 +39,8 @@ window.onload = function () {
                 taille = radio.innerHTML
             }
         })
+        taille = taille;
+        id_produit = id_produit+taille;
         let product = { id: id_produit, nom: text, price: num, image: image_produit, quantity: quantity, size: taille };
         addToBasket(product);
 
@@ -49,6 +59,7 @@ window.onload = function () {
         tl2.to('.sneakers_basket', { duration: 0, y: 0, opacity: 1 }, "<0");
         tl2.to('.p_button', { duration: 0, x: 0, opacity: 0 }, "<0");
         tl2.to('.p_button', { duration: 0.75, opacity: 1 }, "<0");
+        }
 
     });
 
@@ -61,28 +72,6 @@ window.onload = function () {
             return JSON.parse(basket);
         }
     }
-    function getQuantity() {
-        let basket = getBasket();
-        let quantite = 0;
-        for (let product of basket) {
-            quantite += product.quantity;
-        }
-        if (quantite !== 0) {
-            let panier = document.getElementById("vrai_panier");
-            let li_basket = document.getElementById('menu-item-27');
-            if (!li_basket) return
-            let check_basket = document.createElement("div");
-            li_basket.appendChild(check_basket);
-            check_basket.className = "check_basket";
-            let p_check = document.createElement("p");
-            check_basket.appendChild(p_check);
-            p_check.innerHTML = quantite;
-            p_check.className = "p_check";
-            // panier.appendChild()
-        }
-    }
-
-    getQuantity();
 
     const sizes = [
     {
@@ -144,7 +133,6 @@ const addToCart = (e) => {
 
 const parentDiv = document.querySelector(".taille_check")
 function createSizeButtons () {
-    console.log("to");
     for (const size of sizes) {
         const container = document.createElement("div");
         container.classList.add("taille-checkbox")

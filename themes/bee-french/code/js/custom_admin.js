@@ -1,3 +1,5 @@
 window.onload = function () {
-    document.getElementById("comment_status").checked = true;
+    if (document.getElementById("comment_status")){
+        this.checked = true;
+    };   
 };

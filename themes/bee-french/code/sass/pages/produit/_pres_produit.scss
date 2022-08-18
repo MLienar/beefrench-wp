@@ -19,12 +19,13 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
-            @media screen and (max-width: 670px) {
-                align-items: center;
-                h3{
-                    text-align: center;
-                }  
-            } 
+            p{
+                text-align: left;
+            }
+            h3{
+                text-align: left;
+            }
+
         }
         form {
             position: relative;
@@ -107,6 +108,7 @@
             h3{
                 font-weight: 550;
                 font-size: 1.2em;
+                text-align: center;
             }
             .overlay_produit_1{
                 position: absolute;

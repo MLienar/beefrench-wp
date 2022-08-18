@@ -142,26 +142,16 @@ $compteurmargin2: 20;
                 margin-top: -400px;
                 div{     
                         &:nth-child(2){
-                            @media screen and (max-width: 5000px) {                          
+                            margin-top: 0;
+                            @media screen and (min-width: 1800px) {                          
                                 margin-top: -20px;
                             }
-                            @media screen and (max-width: 1500px) {       
-                                margin-top: -20px;
-                            } 
-                            @media screen and (max-width: 800px) {
-                                margin-top: 0;
-                            }  
                         } 
                         &:nth-child(3){
-                            @media screen and (max-width: 5000px) {                          
+                            margin-top: 0;
+                            @media screen and (min-width: 1800px) {                          
                                 margin-top: -35px;
                             }
-                            @media screen and (max-width: 1500px) {       
-                                margin-top: -35px;
-                            } 
-                            @media screen and (max-width: 800px) {
-                                margin-top: 0;
-                            }  
                         }  
                 }
                 @media screen and (min-width: 500px) and (max-width: 770px) {

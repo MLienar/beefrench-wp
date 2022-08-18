@@ -2,7 +2,7 @@ class CartItem {
     constructor (item) {
         this.nom = item.nom
         this.price = item.price
-        this.id = item.id + item.size
+        this.id = item.id
         this.quantity = item.quantity
         this.image = item.image
         this.size = item.size
@@ -18,7 +18,10 @@ class CartItem {
                         <p class="panier_nom32">${this.nom}</p>
                     </div>
                     <div class="cd_info_2">
-                        <input class="input_qty" id=${this.id} value=${this.quantity} min="1" name="quantity" type="number">
+                        <input class="input_qty" id=${this.id} value=${this.quantity} min="1" name="quantity[]" type="number" max="9"">
+                        <input value=${this.id} name="id_product[]" type="hidden">
+                        <input value="${this.nom}" name="nom_produit[]" type="hidden">
+                        <input value=${this.image} name="image[]" type="hidden">
                     </div>
                 </div>
                 <div class="enlever_div"><p class="enlever 32" id=${this.id}>X</p>
@@ -46,7 +49,6 @@ class Cart {
     createItemCardsContainer () {
         const itemCards = document.createElement("div")
         itemCards.className = "container"
-        console.log(this.items);
         itemCards.innerHTML = this.items.map(item => item.renderCartItem())
         const inputQty = itemCards.querySelectorAll('.input_qty')
         inputQty.forEach(input => input.addEventListener('input', (e) => this.updateQuantity(e)))
@@ -117,3 +119,5 @@ function updateQuantity () {
 }
 
 window.addEventListener("load", initCart)
+
+

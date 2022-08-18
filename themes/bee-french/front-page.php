@@ -38,7 +38,7 @@
             </a>
         </aside>
     </section>
-    <section id="cd_contenu_index" data-scroll-section>
+    <section id="cd_contenu_index">
         <div class="contenu_index_1" data-scroll>
             <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom1.jpeg" alt="AF1 Custom"
                 data-scroll data-scroll-speed="2">

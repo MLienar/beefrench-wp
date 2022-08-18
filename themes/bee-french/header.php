@@ -16,34 +16,26 @@
     </a>
     <div class="marges" data-scroll-container>
         <header>
-            <a class="logo" href="/">BeeFrench</a>
+            <a class="logo" href="<?= get_home_url()?>">BeeFrench</a>
             <?php wp_nav_menu([
                     'menu' => 'Menu 1',
                     'theme_location' => 'header',
                     'container' => "nav",
                 ]);
                 ?>
-            <!-- <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-bag" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-                            </svg>
-                        </a> -->
         </header>
-        <div class="dark_overlay_header"></div>
+        <div class="underlay_header2"></div>
+        <div class="menu_toggle" id="toggle">
+            <span class="arm1"></span>
+            <span class="arm2"></span>
+            <span class="arm3"></span>
+        </div>
         <section class="header2">
-            <nav>
+            <nav class="nav2">
+            <a class="logo2" href="<?= get_home_url()?>">BeeFrench</a>
                 <?php wp_nav_menu([
                     'theme_location' => 'header',
                     'container' => false,
                 ]);
                 ?>
-                <!-- <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                                class="bi bi-bag" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-                            </svg>
-                        </a> -->
         </section>
