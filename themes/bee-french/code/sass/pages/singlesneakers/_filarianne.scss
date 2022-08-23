@@ -5,6 +5,11 @@
     @media screen and (max-width: 670px) {
         margin-top: 10%;
     } 
+    @media screen and (max-width: 550px) {
+        margin-top: 20%;
+        flex-direction: column;
+        gap: 20px;
+    }
     .back_arianne{
         a{
             display: flex;

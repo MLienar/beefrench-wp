@@ -1,8 +1,12 @@
 window.onload = function () {
 
-    console.log($('.menu_toggle'));
     $('.menu_toggle').click(function(){
-        console.log('xesh');
+        $('.menu_toggle').toggleClass("menu_toggle_bis")
+        $('.menu_toggle span:nth-child(1)').toggleClass("span_toggle1")
+        $('.menu_toggle span:nth-child(2)').toggleClass("span_toggle2")
+        $('.menu_toggle span:nth-child(3)').toggleClass("span_toggle3")
+        $('.underlay_header2').toggleClass("underlay_header2_bis")
+        $('.header2').toggleClass("header2_bis")
     })
 
     function getBasket() {

@@ -7,8 +7,14 @@ window.onload = function () {
         smooth: true
     });
     
-    // Joues avec les valeurs que j'ai mis entre guillemets
-    // Je voyais un truc qui fasse un peu plus comme un fleur qui s'ouvre pour les photo si tu vois ce que je veux dire
+    $('.menu_toggle').click(function(){
+        $('.menu_toggle').toggleClass("menu_toggle_bis")
+        $('.menu_toggle span:nth-child(1)').toggleClass("span_toggle1")
+        $('.menu_toggle span:nth-child(2)').toggleClass("span_toggle2")
+        $('.menu_toggle span:nth-child(3)').toggleClass("span_toggle3")
+        $('.underlay_header2').toggleClass("underlay_header2_bis")
+        $('.header2').toggleClass("header2_bis")
+    })
 
     let tl1 = gsap.timeline({ ease: "power4.inOut"})
     tl1.from(".img1", { duration:1, opacity: 0, rotate: 200, x:250, y:500, scale: 0}, "<0");
@@ -16,8 +22,6 @@ window.onload = function () {
     tl1.from(".img3", { duration:1, opacity: 0, rotate: 200, x:250, y:-350, width: 0}, "<0.15");
     tl1.from(".img4", { duration:1, opacity: 0, rotate: 200, x:-350, y:-350, width: 0, onComplete : flyimg}, "<0.15");
     
-
-    // Essaie de mettre moins de délai entre les animations du texte et des images
     function flyimg() {
         gsap.to(".hero_img", {
             duration: 2,
