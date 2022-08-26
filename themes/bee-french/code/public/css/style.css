@@ -783,6 +783,7 @@ td img {
   flex-direction: column;
   align-items: flex-start;
   padding: clamp(60px, 10%, 100px) 0;
+  gap: 20px;
 }
 .wrap_all_produit .pres_produit {
   width: 100%;
@@ -882,6 +883,7 @@ td img {
   flex-direction: column;
   align-items: center;
   position: relative;
+  height: clamp(300px, 50vw, 450px);
   transition: all 0.5s;
   padding: clamp(5px, 3%, 40px);
 }
@@ -982,26 +984,59 @@ td img {
     align-items: center;
   }
 }
-.wrap_grille_img .grille_image_produit {
-  width: 60%;
+.wrap_grille_img .gallery {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  max-width: 600px;
+  position: relative;
+  padding-top: 400px;
 }
-@media screen and (max-width: 935px) {
-  .wrap_grille_img .grille_image_produit {
-    width: 100%;
+@media screen and (max-width: 600px) {
+  .wrap_grille_img .gallery {
+    max-width: 400px;
+    padding-top: 300px;
   }
 }
-.wrap_grille_img .grille_image_produit img {
-  width: 21%;
-  box-shadow: none;
-  height: 120px;
-}
-.wrap_grille_img .grille_image_produit img:nth-child(1) {
-  width: 100%;
-  height: fit-content;
+.wrap_grille_img .gallery__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  padding-inline: 35px;
+  height: 400px;
   object-fit: contain;
+  transition: opacity 0.3s ease-in-out;
+  box-shadow: none;
+}
+@media screen and (max-width: 600px) {
+  .wrap_grille_img .gallery__img {
+    height: 300px;
+  }
+}
+.wrap_grille_img .gallery__item {
+  padding-top: 10px;
+  padding-inline: 10px;
+}
+.wrap_grille_img .gallery__thumb {
+  display: block;
+}
+.wrap_grille_img .gallery__thumb img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  box-shadow: none;
+}
+@media screen and (max-width: 600px) {
+  .wrap_grille_img .gallery__thumb img {
+    width: 70px;
+  }
+}
+.wrap_grille_img .gallery__selector {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+.wrap_grille_img .gallery__selector:checked + .gallery__img {
+  opacity: 1;
 }
 .wrap_grille_img .cd_form_fiche_produit {
   width: 30%;
@@ -1596,7 +1631,8 @@ header nav ul li:last-child .check_basket {
 }
 
 .menu_toggle_bis {
-  left: calc(100% - 35px);
+  left: calc(100% - 50px);
+  position: fixed;
 }
 
 .header2 {

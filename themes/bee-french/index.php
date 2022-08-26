@@ -63,7 +63,11 @@ get_header();
                     <h3><?php the_title(); ?></h3>
                     <p><?php echo (get_post_meta($post->ID, 'prix', true) . "€"); ?></p>
                     <div class="overlay_produit_1">
-                        <?php kdmfi_the_featured_image('image-Survol'); ?>
+                        <?php 
+                        $arr = (get_post_meta($post->ID, 'vdw_gallery_id', true));
+                        $survol = $arr[2];
+                        ?>
+                        <img src="<?= wp_get_attachment_url($survol) ?>" alt="imgae sneakers survol">
                     </div>
                     <div class="overlay_produit_2">
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
@@ -107,7 +111,11 @@ get_header();
                     <h3><?php the_title(); ?></h3>
                     <p><?php echo (get_post_meta($post->ID, 'prix', true) . "€"); ?></p>
                     <div class="overlay_produit_1">
-                        <?php kdmfi_the_featured_image('image-Survol'); ?>
+                    <?php 
+                        $arr = (get_post_meta($post->ID, 'vdw_gallery_id', true));
+                        $survol = $arr[2];
+                        ?>
+                        <img src="<?= wp_get_attachment_url($survol) ?>" alt="imgae sneakers survol">
                     </div>
                     <div class="overlay_produit_2">
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>

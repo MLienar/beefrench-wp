@@ -395,16 +395,4 @@ add_filter('comment_form_default_fields', function ($fields) {
     return $fields;
 });
 
-add_filter('pre_get_posts', 'query_post_type');
-function query_post_type($query)
-{
-    if (is_category() || is_tag() || is_home() && empty($query->query_vars['suppress_filters'])) {
-        $post_type = get_query_var('post_type');
-        if ($post_type)
-            $post_type = $post_type;
-        else
-            $post_type = array('post', 'Sneakers'); //Poterie étant mon custom post type
-        $query->set('post_type', $post_type);
-        return $query;
-    }
-}
+

@@ -6,25 +6,61 @@
         flex-direction: column;
         align-items: center;
     } 
-    .grille_image_produit{
-        width: 60%;
+      
+    .gallery {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        @media screen and (max-width: 935px) {
-            width: 100%;
-        } 
-        img{
-            width: 21%;
-            box-shadow: none;
-            height: 120px;
-            &:nth-child(1){
-                width: 100%;
-                height: fit-content;
-                object-fit: contain;
-            }
+        max-width: 600px;
+        position: relative;
+        padding-top: 400px;
+        @media screen and (max-width: 600px) {
+            max-width: 400px;
+            padding-top: 300px;
         }
-    }
+        
+        &__img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          padding-inline: 35px;
+          height: 400px;
+          object-fit: contain;
+          transition: opacity 0.3s ease-in-out;
+          box-shadow: none;
+          @media screen and (max-width: 600px) {
+            height: 300px;
+        }
+        }
+        &__item {
+            padding-top: 10px;
+            padding-inline: 10px;
+          }
+        
+         &__thumb {
+          display: block;
+          img{
+            height: 100px;
+            width: 100px;
+            object-fit: contain;
+            box-shadow: none;
+            @media screen and (max-width: 600px) {
+                width: 70px;
+            }
+          }
+        }
+        
+        &__selector {
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+          
+          &:checked {
+            + .gallery__img {
+              opacity: 1;
+            }
+          }
+        }
+      }
     .cd_form_fiche_produit{
         width: 30%;
         display: flex;
