@@ -387,12 +387,3 @@ function search_apparel($template)
 add_filter('template_include', 'search_apparel');
 
 
-add_filter('comment_form_default_fields', function ($fields) {
-    $fields['email'] = '<div class="mb-3"><label for="exampleInputEmail1" class="form-label">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required ><div id="emailHelp" class="form-text">We ll never share your email with anyone else.</div></div>';
-    $fields['cookies'] = '<div class="mb-3 form-check"><input type="checkbox" class="form-check-input" id="exampleCheck1"><label class="form-check-label" for="exampleCheck1"> Save my name and email in this browser for the next time I comment.</label></div>';
-    $fields['url'] = '';
-    $fields['author'] = '<div class="mb-3"><label for="exampleInputName1" class="form-label">Name</label><input type="text" class="form-control" id="exampleInputName1" aria-describedby="namelHelp" required ></div>';
-    return $fields;
-});
-
-

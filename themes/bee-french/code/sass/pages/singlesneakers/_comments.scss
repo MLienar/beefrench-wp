@@ -1,11 +1,37 @@
 .cd_commentaire{
     margin-top: 15%;
-    input.button_comments{
-        background-color: black;
-        color: white;
-        padding: clamp(8px, 4%, 12px) clamp(22px, 11%, 35px);
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    .comment-form-comment{
+        label{
+            display: none;
+        }
     }
-    #respond{
-        margin-bottom: 5%;
+    .comment-form{
+        .form-submit{
+            .submit{
+                background: black;
+                color: white;
+                margin: 0;
+                overflow: hidden;
+                position: relative;
+                padding: 10px;
+                margin-block: 20px;
+            }
+        }
+    }
+    #comments, .comment-form-url, comment-form-cookies-consent{
+        display: none;
+    }
+    .comment-reply-link, .comment-edit-link, #reply-title{
+        color: $color-primary;
+    }
+    .comment-form-email, .comment-form-author{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-block: 20px;
     }
 }

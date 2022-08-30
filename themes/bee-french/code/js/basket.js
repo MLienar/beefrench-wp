@@ -9,6 +9,13 @@ window.onload = function () {
         $('.header2').toggleClass("header2_bis")
     })
 
+    srcImage = document.querySelector('.gallery__img').src
+    srcImage2 = srcImage.replace("-150x200", "")
+    document.querySelector('.gallery__img').src = srcImage2
+    srcImagebis = document.querySelector('.img_th').src
+    srcImage2bis = srcImagebis.replace("-150x200", "")
+    document.querySelector('.img_th').src = srcImage2bis
+
     // Ajouter
     function addToBasket(product) {
         let basket = getBasket();
@@ -37,7 +44,7 @@ window.onload = function () {
         let text = $('.nom' + classajout).html();
         let num = $('.prix' + classajout).html();
         let id_produit = $('.id' + classajout).html();
-        let image_produit = $('.img_product_basket' + classajout).attr('src');
+        let image_produit = $('.img_thumbnail' + classajout).attr('src');
         num = parseInt(num);
         id_produit = id_produit;
         let taille = ""

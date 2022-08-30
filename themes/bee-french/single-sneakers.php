@@ -33,7 +33,7 @@ $sexe = get_terms(['taxonomy' => 'Sexe']);
                 <div class="gallery__item">
                     <input type="radio" id="img-1" checked name="gallery" class="gallery__selector" />
                     <img class="gallery__img" src="<?= wp_get_attachment_image_url($id_th) ?>" alt="" />
-                    <label for="img-1" class="gallery__thumb"><img src="<?= wp_get_attachment_image_url($id_th) ?>" alt="" /></label>
+                    <label for="img-1" class="gallery__thumb"><img class="img_thumbnail<?= $post->ID ?> img_th" src="<?= wp_get_attachment_image_url($id_th) ?>" alt="" /></label>
                 </div>
                 <div class="gallery__item">
                     <input type="radio" id="img-2" name="gallery" class="gallery__selector" />
