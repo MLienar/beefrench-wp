@@ -720,7 +720,8 @@ td img {
 #Rubrique-adder,
 #wpfooter,
 #screen-meta-links,
-#edit-slug-box {
+#edit-slug-box,
+#menu-posts {
   display: none;
 }
 
@@ -986,6 +987,7 @@ td img {
 }
 .wrap_grille_img .gallery {
   display: flex;
+  gap: 20px;
   max-width: 600px;
   position: relative;
   padding-top: 400px;
@@ -1001,7 +1003,6 @@ td img {
   top: 0;
   left: 0;
   opacity: 0;
-  padding-inline: 35px;
   height: 400px;
   max-width: 550px;
   object-fit: contain;
@@ -1015,7 +1016,6 @@ td img {
 }
 .wrap_grille_img .gallery__item {
   padding-top: 10px;
-  padding-inline: 10px;
 }
 .wrap_grille_img .gallery__thumb {
   display: block;
@@ -1023,7 +1023,7 @@ td img {
 .wrap_grille_img .gallery__thumb img {
   height: 100px;
   width: 100px;
-  object-fit: contain;
+  object-fit: cover;
   box-shadow: none;
 }
 @media screen and (max-width: 600px) {

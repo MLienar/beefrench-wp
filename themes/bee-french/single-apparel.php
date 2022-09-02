@@ -41,13 +41,13 @@ get_header()
         <section class="wrap_grille_img">
             <?php
             $arr = (get_post_meta($post->ID, 'vdw_gallery_id', true));
-            $id_th = get_post_thumbnail_id( $post);
+            $id_th = get_post_thumbnail_id($post);
             ?>
             <section class="gallery">
                 <div class="gallery__item">
                     <input type="radio" id="img-1" checked name="gallery" class="gallery__selector" />
-                    <img class="gallery__img" src="<?= wp_get_attachment_image_url( $id_th) ?>" alt="" />
-                    <label for="img-1" class="gallery__thumb"><img src="<?= wp_get_attachment_image_url( $id_th) ?>" alt="" /></label>
+                    <img class="gallery__img" src="<?= wp_get_attachment_image_url($id_th) ?>" alt="" />
+                    <label for="img-1" class="gallery__thumb"><img class="img_thumbnail<?= $post->ID ?> img_th" src="<?= wp_get_attachment_image_url($id_th) ?>" alt="" /></label>
                 </div>
                 <div class="gallery__item">
                     <input type="radio" id="img-2" name="gallery" class="gallery__selector" />
@@ -100,6 +100,13 @@ get_header()
                     </div>
                 </form>
             </div>
+        </section>
+        <section class="cd_commentaire">
+            <?php
+            if (comments_open() || get_comments_number()) {
+                comments_template();
+            }
+            ?>
         </section>
         <section class="cd_commentaire">
             <?php

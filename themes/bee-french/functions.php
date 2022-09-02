@@ -17,6 +17,7 @@ function montheme_register_assets()
     wp_register_script('locomotivejs', get_stylesheet_directory_uri() . '/code/js/locomotive-scroll.min.js');
     wp_register_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js');
     wp_register_script('basket', get_stylesheet_directory_uri() . '/code/js/basket.js');
+    wp_register_script('gallery', get_stylesheet_directory_uri() . '/code/js/gallery.js');
     wp_register_script('index', get_stylesheet_directory_uri() . '/code/js/main.js');
     wp_register_script('frontpage', get_stylesheet_directory_uri() . '/code/js/front-page.js');
     wp_register_script('afficher_panier', get_stylesheet_directory_uri() . '/code/js/afficher_panier.js');
@@ -39,6 +40,9 @@ function montheme_register_assets()
     	wp_enqueue_script('afficher_panier');
         wp_enqueue_script('jquery_paiement');
         
+    }
+    if ( is_page(269) ){
+        wp_enqueue_script('gallery');   
     }
     if ( is_single() && 'sneakers' == get_post_type() ) {
     	wp_enqueue_script('basket');
@@ -75,9 +79,19 @@ function montheme_types()
     register_post_type('Apparel', [
         'label' => 'Apparel',
         'public' => true,
-        'menu_position' => 2,
+        'menu_position' => 4,
         'menu_icon' => get_template_directory_uri() . '/code/images/png/t-shirt-24.png',
         'supports' => ['title', 'thumbnail', 'comments'],
+        'show_in_rest' => true,
+        'has_archive' => true,
+        ''
+    ]);
+    register_post_type('Gallery', [
+        'label' => 'Gallery',
+        'public' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-layout',
+        'supports' => ['title', 'thumbnail'],
         'show_in_rest' => true,
         'has_archive' => true,
         ''
@@ -98,81 +112,10 @@ add_filter('document_title_separator', 'montheme_title_separator');
 add_filter('document_title_parts', 'montheme_document_title_parts');
 
 
-add_filter('kdmfi_featured_images', function ($featured_images) {
-    $args = array(
-        'id' => 'image-Survol',
-        'label_name' => 'Image Survol',
-        'label_set' => 'Set Image Survol',
-        'label_use' => 'Set Image Survol',
-        'post_type' => array('Sneakers', 'Apparel'),
-    );
-
-    $featured_images[] = $args;
-
-    return $featured_images;
-});
-
-add_filter('kdmfi_featured_images', function ($featured_images) {
-    $args = array(
-        'id' => 'image-sneakers-1',
-        'label_name' => 'Image Sneakers 1',
-        'label_set' => 'Set Image Sneakers 1',
-        'label_use' => 'Set Image Sneakers 1',
-        'post_type' => array('Sneakers', 'Apparel'),
-    );
-
-    $featured_images[] = $args;
-
-    return $featured_images;
-});
-
-add_filter('kdmfi_featured_images', function ($featured_images) {
-    $args = array(
-        'id' => 'image-sneakers-2',
-        'label_name' => 'Image Sneakers 2',
-        'label_set' => 'Set Image Sneakers 2',
-        'label_use' => 'Set Image Sneakers 2',
-        'post_type' => array('Sneakers', 'Apparel'),
-    );
-
-    $featured_images[] = $args;
-
-    return $featured_images;
-});
-
-add_filter('kdmfi_featured_images', function ($featured_images) {
-    $args = array(
-        'id' => 'image-sneakers-3',
-        'label_name' => 'Image Sneakers 3',
-        'label_set' => 'Set Image Sneakers 3',
-        'label_use' => 'Set Image Sneakers 3',
-        'post_type' => array('Sneakers', 'Apparel'),
-    );
-
-    $featured_images[] = $args;
-
-    return $featured_images;
-});
-
-add_filter('kdmfi_featured_images', function ($featured_images) {
-    $args = array(
-        'id' => 'image-sneakers-4',
-        'label_name' => 'Image Sneakers 4',
-        'label_set' => 'Set Image Sneakers 4',
-        'label_use' => 'Set Image Sneakers 4',
-        'post_type' => array('Sneakers', 'Apparel'),
-    );
-
-    $featured_images[] = $args;
-
-    return $featured_images;
-});
-
-
 add_filter('manage_sneakers_posts_columns', function ($columns) {
     return [
         'cb' => $columns['cb'],
-        'thumbnail' => "Image Vitrine 1",
+        'thumbnail' => "Image Vitrine",
         'title' => $columns['title'],
         'date' => $columns['date']
     ];

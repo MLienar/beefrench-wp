@@ -5,74 +5,27 @@
  */
 
 get_header();
+wp_reset_query();
 
+$gallery = new WP_Query([
+    'post_type' => 'gallery',
+    'orderby' => 'rand',
+]);
 ?>
-<main>
-    <div class="gallerie">
-        <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom1.jpeg"/>
+<div class="gallerie">
+    <?php
+    $arr = (get_post_meta(246, 'vdw_gallery_id', true));
+    
+    $i = 0;
+    foreach ($arr as $ligne) { ?>
+        <div class="cd_img_gallerie">
+            <img class="gallery__img" src="<?= wp_get_attachment_url($ligne) ?>" alt=" " title=""/>   
         </div>
-
-        <div class="vertical">
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/0b8db10977f4379a889a557055f992bf.png" />
-        </div>
-
-        <div class="horizontal">
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom4.jpeg" />
-        </div>
-
-        <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom1.jpeg" />
-        </div>
-
-        <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/png/custom5.png" />
-        </div>
-
-        <div class="big">
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/0b8db10977f4379a889a557055f992bf.png" />
-        </div>
-
-        <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom4.jpeg" />
-        </div>
-
-        <div class="vertical">
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom1.jpeg" />
-        </div>
-
-        <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/png/custom5.png" />
-        </div>
-
-        <div class="horizontal">
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom4.jpeg" />
-        </div>
-
-        <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/0b8db10977f4379a889a557055f992bf.png" />
-        </div>
-
-        <div class="big">
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/png/custom5.png" />
-        </div>
-
-        <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom4.jpeg" />
-        </div>
-
-        <div class="horizontal">
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/custom1.jpeg" />
-        </div>
-
-        <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/0b8db10977f4379a889a557055f992bf.png" />
-        </div>
-        <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/code/images/jpg/0b8db10977f4379a889a557055f992bf.png" />
-        </div>
-        
-    </div>
+    <?php
+        $i = $i + 1;
+    };
+    ?>
+</div>
 </main>
 
 <?php get_footer(); ?>

@@ -9,6 +9,7 @@
       
     .gallery {
         display: flex;
+        gap: 20px;
         max-width: 600px;
         position: relative;
         padding-top: 400px;
@@ -22,7 +23,6 @@
           top: 0;
           left: 0;
           opacity: 0;
-          padding-inline: 35px;
           height: 400px;
           max-width: 550px;
           object-fit: contain;
@@ -34,7 +34,6 @@
         }
         &__item {
             padding-top: 10px;
-            padding-inline: 10px;
           }
         
          &__thumb {
@@ -42,7 +41,7 @@
           img{
             height: 100px;
             width: 100px;
-            object-fit: contain;
+            object-fit: cover;
             box-shadow: none;
             @media screen and (max-width: 600px) {
                 width: 70px;
