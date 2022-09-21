@@ -1,0 +1,162 @@
+.wrap_all_produit{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(60px, 10%, 100px) 0;
+    gap: 20px;
+    .pres_produit{
+        width: 100%;
+        padding-bottom: 7%; 
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        @media screen and (max-width: 670px) {
+            flex-direction: column;
+            align-items: center;
+        } 
+        .txt_prod{
+            width: clamp(350px, 50%, 1500px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            p{
+                text-align: left;
+            }
+            h3{
+                text-align: left;
+            }
+
+        }
+        form {
+            position: relative;
+            width: 10rem;
+            background: #57bd84;
+            border-radius: .5rem;
+            @media screen and (max-width: 670px) {
+                margin-top: 5%;
+            } 
+            input, button {
+                height: 2rem;
+                border: 0;
+                color: #2f2f2f;
+                font-size: 1rem;
+              }
+              input[type="search"] {
+                outline: 0; 
+                width: 100%;
+                background: #fff;
+                padding: 0 1rem;
+                border-radius: .5rem;
+                appearance: none;
+                transition: all .3s;
+                position: relative;
+                float: left;
+                &::-webkit-search-cancel-button{
+                    -webkit-appearance: none;
+                    height: 1em;
+                    width: 1em;
+                    border-radius: 50em;
+                    background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 50% 50%;
+                    background-size: contain;
+                    opacity: 0;
+                    pointer-events: none; 
+                }
+                &:focus::-webkit-search-cancel-button{
+                    opacity: .5;
+                    pointer-events: all;
+                }
+              }
+              button {
+                display: none; 
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 2rem;
+                font-weight: bold;
+                background:#57bd84;
+                border-radius: 0 .5rem .5rem 0;
+              }
+              input:not(:placeholder-shown) {
+                border-radius: .5rem 0 0 .5rem;
+                width: calc(100% - 2rem);
+                + button {
+                  display: block;
+                }
+              }
+          }    
+    }
+    .wrap_cd_produit{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px;
+        .cd_produit{
+            width: clamp(200px, 30vw, 300px);
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            height: clamp(300px, 50vw, 450px);
+            transition: all 0.5s;
+            padding: clamp(5px, 3%, 40px);
+            .img_produit{
+                width: 100%;
+                box-shadow: none;
+                margin-bottom: 5%;
+                object-fit: contain;
+            }
+            h3{
+                font-weight: 550;
+                font-size: 1.2em;
+                text-align: center;
+            }
+            .overlay_produit_1{
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+                transition: all 0.7s;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .overlay_produit_2{
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.575);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+                transition: all 0.7s;
+                gap: 15px;
+                a, p{
+                    color: white;
+                }
+            }
+            &:hover{
+                .overlay_produit_1, .overlay_produit_2{
+                    opacity: 1;         
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1176px) {
+        align-items: center;
+        .pres_produit{
+        text-align: center;
+        width: 100%;
+        }
+    }
+}

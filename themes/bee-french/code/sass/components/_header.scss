@@ -1,0 +1,195 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: clamp(10px, 3%, 50px) 0;
+    z-index: 10;
+    .check_basket{
+        right: -15px;
+        top: -15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: black;
+        height: 15px;
+        width: 15px;
+        font-size: 10px;
+        border-radius: 50%;
+        padding: 4.5px;
+        color: white;
+    }
+    @media screen and (max-width: 715px) {
+        height: 25px;
+        margin-top: 10px;
+        width: 145px;
+        align-items: baseline;
+        flex-direction: row-reverse;
+    }
+    .logo {
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: all ease-in-out 0.3s;
+    }
+    .logo_bis{
+        opacity: 0;
+        transition: all ease-in-out 0.3s;
+    }
+    .baskethead{
+        display: none;
+        align-items: stretch;
+        gap: 5px;
+        i{
+            font-size: 22px;
+        }
+        @media screen and (max-width: 715px) {
+            display: flex;
+        }
+    }
+    .menu-navigation-container {
+        display: flex;
+        @media screen and (max-width: 715px) {
+           display:none;
+        } 
+        ul {
+            display: flex;
+            gap: 2em;
+            list-style: none;
+            li:last-child {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            @media screen and (max-width: 715px) {
+                display: none;
+            }
+        }
+        
+    } 
+}
+.underlay_header2{
+    display: none;
+    position: fixed;
+    background-color: rgb(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    right: 0;
+    transition: all ease-in-out 0.4s;
+    z-index: 2;
+    @media screen and (min-width: 715px) {
+        display: none;
+    }
+}
+.underlay_header2_bis{
+    display: block;
+}
+
+.menu_toggle{
+    height: 25px;
+    width: 35px;
+    position: absolute;
+    top: 15px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all ease-in-out 0.4s;
+    z-index: 3;
+    @media screen and (min-width: 715px) {
+        display: none;
+    }
+    span{
+        height: 2px;
+        width: 100%;
+        background-color: black;
+        transition: all ease-in-out 0.4s;
+    }
+    .arm1{
+        transform-origin: top right;
+    }
+    .arm3{
+        transform-origin: bottom right;
+    }
+    .span_toggle1{
+        transform: rotate(-45deg);
+    }
+    .span_toggle2{
+        opacity: 0;
+    }
+    .span_toggle3{
+        transform: rotate(45deg); 
+    }
+}
+.menu_toggle_bis{
+    right: calc(100% - 35px);
+    position: fixed;
+}
+.header2{
+    height: 100vh;
+    width: calc(100% - 50px);
+    position: fixed;
+    top: 0;
+    right: calc(-100% + 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    z-index: 4;
+    font-size: 1.3em;
+    text-align: center;
+    transition: all ease-in-out 0.4s;
+    .check_basket{
+        right: -15px;
+        top: -15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: black;
+        height: 15px;
+        width: 15px;
+        font-size: 10px;
+        border-radius: 50%;
+        padding: 4.5px;
+        color: white;
+    }
+    @media screen and (min-width: 715px) {
+        display: none;
+    }
+    .nav2{
+        width: 100%;
+        display: flex;
+        height: 300px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        .logo2{
+            text-transform: uppercase;
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+        ul{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            align-items: center;
+            gap: 25px;
+            flex-direction: column;
+            li{
+                width: 100%;
+                text-transform: capitalize;
+                &:last-child{
+                    display: flex;
+                    align-items: stretch;
+                    gap: 5px;
+                    justify-content:center;
+                }
+            }
+            
+        }
+    }
+}
+.header2_bis{
+    right: 0;
+}

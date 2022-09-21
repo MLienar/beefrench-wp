@@ -1,0 +1,45 @@
+.manage-column.column-thumbnail{
+    width: 25vh;
+}
+td{
+    img{
+        box-shadow: none;
+    }
+}
+.wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before, 
+.components-external-link, label.components-base-control__label, 
+#slugdiv, .handle-order-higher, 
+.handle-order-lower, 
+#Sexe-adder, 
+#Rubrique-adder,
+#wpfooter,
+#screen-meta-links,
+#edit-slug-box,
+#menu-posts,
+#postimagediv
+{
+    display: none
+}
+.kdmfi-add-media{
+    color: $color-primary;
+}
+.components-panel{
+    &:nth-child(2){
+        display: none
+    }
+}
+
+#rubrique-tabs{
+    li{
+        &:nth-child(2){
+            display: none;
+        }
+    }
+}
+
+#commentstatusdiv{
+    visibility: hidden;
+}
+.ui-sortable-handle{
+    text-transform: capitalize;
+}

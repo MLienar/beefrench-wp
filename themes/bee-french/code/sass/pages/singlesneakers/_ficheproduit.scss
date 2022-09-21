@@ -1,0 +1,166 @@
+.wrap_grille_img{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    @media screen and (max-width: 935px) {
+        flex-direction: column;
+        align-items: center;
+    } 
+      
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        gap: 20px;
+        img{
+            box-shadow: none;
+        }
+        @media screen and (max-width: 935px) {
+            width: 95%;
+            margin-top: 50px;
+        } 
+        &__big{
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+        }
+        &__cd{
+            display: flex;
+            justify-content: space-between;
+            &__img {
+                width: 22%;
+                height: 100px;
+            }
+        }   
+      }
+    .cd_form_fiche_produit{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        @media screen and (max-width: 935px) {
+            width: 70%;
+            text-align: center;
+            align-items: center;
+        } 
+        .postid{
+            visibility: hidden;
+        }
+        h2{
+            font-size: clamp(40px, 4vw, 50px);
+            font-weight: 700;
+            padding-top: 15%;
+            color: black;
+        }
+        .info_fiche_produit{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 5%;
+            .sexe{
+                text-transform: uppercase;
+            }
+        }
+        p{
+            &:nth-child(3){
+                align-self: flex-start;
+                margin-bottom: -15%;
+                @media screen and (max-width: 935px) {
+                    align-self: center;
+                    margin-bottom: -5%;
+                } 
+            }
+        }
+        form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+            .taille_check{
+                width: 100%;
+                display: grid;
+                height: 120px;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                justify-items: end;
+                grid-gap: 5px;
+                margin: 20px 0 ;
+                justify-content: center;
+                .taille-checkbox {
+                    box-sizing: border-box;
+                    height: clamp(40px, 7vh, 80px);
+                    width: clamp(40px, 7vh, 80px);
+                    aspect-ratio: 1 / 1;
+                    border: 1px solid #000;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    justify-content: center;
+                }
+                .checked {
+                    background-color: black;
+                    color: white;
+                    border: 1px solid white;
+                    outline: 1px solid black;
+                }
+            }
+            .cd_form_button{
+                display: flex;
+                width: 100%;
+                justify-content: flex-end;
+                flex-wrap: wrap;
+                gap: 20px;
+                select {
+                    padding: 0.5rem;
+                    font-size: 1rem;
+                    line-height: 1.5;
+                    border: 4px solid $background;
+                    background-color: transparent;
+                    transition: all 0.25s ease-in-out;
+                    outline: 1px solid black;
+                    cursor: pointer;
+                }
+                .ajouter{
+                    width: 185px;
+                    background: black;
+                    color: white;
+                    margin: 0;
+                    overflow: hidden;
+                    position: relative;
+                    height: 47px;
+                }
+                    p{
+                        font-size: clamp(10px, 1.2vw, 1rem);
+                    }
+                    .basket_icon{
+                        position: absolute;
+                        top: 10px;
+                        left: -50px;
+                        font-size: 25px;  
+                    }
+                    .sneakers_basket{
+                        width: 25px;
+                        position: absolute;
+                        top: -50px;
+                        left: 86px;
+                    }
+                    .addtocart{
+                        font-size: 25px;
+                        color: white;
+                        position: absolute;
+                        top: 10px;
+                        left: 80px;
+                        opacity: 0;
+                    }
+                    @media screen and (max-width: 935px) {
+                        margin-left: 15%;
+                    }  
+                    @media screen and (max-width: 670px) {
+                        margin-left: 0%;
+                    }  
+                }
+            }
+        }
+    }

@@ -1,0 +1,43 @@
+.wpcf7{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-block: clamp(50px, 10%, 100px);
+    .wpcf7-form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        .wpcf7-submit{
+            color: white;
+            background-color: black;
+            padding: 15px;
+        }
+        .cd_contact_form{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            gap: 50px;
+            .cd_form_contact_col1{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                textarea{
+                    width: 100%;
+                }
+            }
+            .cd_form_contact_col2{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                input{
+                    width: 100%;
+                    height: 50px;
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+    }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>coco ntm</title>
+</head>
+
+<body>
+  <header>
+    wesh le header
+  </header>
+  <main>
+
+    <form action="pay.php" method="post" class="form_pay">
+      <div class="form-group">
+        <label for="inputNom">Nom Complet</label>
+        <input type="text" class="form-control" id="inputNom">
+      </div>
+      <div class="form-group">
+        <label for="inputAdresse">Adresse de Livraison</label>
+        <input type="text" class="form-control" id="inputAdresse">
+      </div>
+      <div class="form-row">
+        <div class="form-group cc">
+          <label for="inputVille">Ville</label>
+          <input type="text" class="form-control" id="inputVille">
+        </div>
+        <div class="form-group cc">
+          <label for="inputCodePostal">Code Postal</label>
+          <input type="text" class="form-control" id="inputCodePostal">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="number">Numéro Carte de Crédit</label>
+        <input name="number" class="cc-number form-control" type="tel" pattern="\d*" maxlength="19"
+          placeholder="Card Number">
+      </div>
+      <div class="form-row">
+        <div class="form-group cc">
+          <label for="credit-expires">Date d'expiration</label>
+          <input name="credit-expires" class="cc-expires form-control" type="tel" pattern="\d*" maxlength="7"
+            placeholder="MM / YY">
+        </div>
+        <div class="form-group cc">
+          <label for="cvc">CVC</label>
+          <input name="cvc" class="cc-cvc form-control" type="tel" pattern="\d*" maxlength="3" placeholder="CVC">
+        </div>
+      </div>
+      <div class="form-group cd_button_pay">
+        <input type="button" value="Payer">
+      </div>
+    </form>
+
+  </main>
+  <footer>
+    wesh le footer
+  </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.1/jquery.payment.min.js"></script>
+<script src="main.js"></script>
+
+</html>
