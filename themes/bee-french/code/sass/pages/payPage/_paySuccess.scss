@@ -1,0 +1,8 @@
+.cd_pay{
+    height: clamp(400px, calc(40vh + 20vw), 700px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-direction: column;
+}

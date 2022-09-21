@@ -1,0 +1,33 @@
+.fil_arianne{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    @media screen and (max-width: 715px) {
+        margin-top: 10%;
+    } 
+    @media screen and (max-width: 550px) {
+        margin-top: 20%;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .back_arianne{
+        a{
+            display: flex;
+            width: 70px;
+            justify-content: space-between;
+        }
+    }
+    nav{ 
+        width: fit-content;
+        ol{
+            display: flex;
+            justify-content: space-between;
+            li.active{
+                color: $color-primary;
+            }
+            .urlpost{
+                text-transform: capitalize;
+            }
+        }
+    }
+}

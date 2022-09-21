@@ -1,0 +1,45 @@
+// Common
+@import "./vendors/reset";
+@import "./utils/variables";
+@import "./base/fonts";
+@import "./base/common";
+
+
+// Pages Home
+@import "./pages/home/hero";
+@import "./pages/home/contenu";
+
+// Pages Admin
+@import "./pages/admin/custompost";
+@import "./pages/admin/formshoes";
+
+// Pages Produit
+@import "./pages/produit/pres_produit";
+@import "./pages/produit/pagination";
+
+// Pages Fiche Produit
+@import "./pages/singlesneakers/ficheproduit";
+@import "./pages/singlesneakers/filarianne";
+@import "./pages/singlesneakers/comments";
+
+// Pages Fiche Produit
+@import "./pages/panier/panier";
+
+// Pages gallery
+@import "./pages/gallery/gallery";
+
+// Pages contact
+@import "./pages/contact/contact";
+
+// Pages 404 error
+@import "./pages/404error/404error";
+
+// Pages Paiement redirection
+@import "./pages/payPage/paySuccess";
+
+// Pages Back to Top
+@import "./components/backtotop";
+
+// Components
+@import "./components/header";
+@import "./components/footer";
