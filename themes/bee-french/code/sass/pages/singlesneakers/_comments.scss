@@ -15,6 +15,11 @@
         }
     }
     .comment-form{
+        textarea{
+            @media screen and (max-width: 935px) {
+                width: $min-width;
+            }     
+        }
         .form-submit{
             .submit{
                 background: black;

@@ -930,6 +930,11 @@ td img {
   transition: all 0.7s;
   gap: 15px;
 }
+@media only screen and (max-width: 768px) {
+  .wrap_all_produit .wrap_cd_produit .cd_produit .overlay_produit_2 {
+    display: none;
+  }
+}
 .wrap_all_produit .wrap_cd_produit .cd_produit .overlay_produit_2 a, .wrap_all_produit .wrap_cd_produit .cd_produit .overlay_produit_2 p {
   color: white;
 }
@@ -1201,6 +1206,11 @@ td img {
 }
 .cd_commentaire .comment-form-comment label {
   display: none;
+}
+@media screen and (max-width: 935px) {
+  .cd_commentaire .comment-form textarea {
+    width: 350px;
+  }
 }
 .cd_commentaire .comment-form .form-submit .submit {
   background: black;
@@ -1527,7 +1537,7 @@ a.arrow-up {
   bottom: 1vh;
   right: 1vw;
   transition: all 1s;
-  z-index: 998;
+  z-index: 4;
 }
 a.arrow-up .arrow-slide {
   left: 0;

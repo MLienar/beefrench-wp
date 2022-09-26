@@ -141,6 +141,9 @@
                 text-align: center;
                 transition: all 0.7s;
                 gap: 15px;
+                @media only screen and (max-width: 768px) {
+                    display: none;
+                }
                 a, p{
                     color: white;
                 }
