@@ -1665,26 +1665,26 @@ header .baskethead i {
     top: 15px;
   }
 }
-header .menu-menu-1-container {
+header nav {
   display: flex;
 }
 @media screen and (max-width: 715px) {
-  header .menu-menu-1-container {
+  header nav {
     display: none;
   }
 }
-header .menu-menu-1-container ul {
+header nav ul {
   display: flex;
   gap: 2em;
   list-style: none;
 }
-header .menu-menu-1-container ul li:last-child {
+header nav ul li:last-child {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 @media screen and (max-width: 715px) {
-  header .menu-menu-1-container ul {
+  header nav ul {
     display: none;
   }
 }
