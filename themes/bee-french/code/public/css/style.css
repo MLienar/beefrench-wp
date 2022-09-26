@@ -1637,7 +1637,6 @@ header .check_basket {
     margin-top: 10px;
     width: 145px;
     align-items: baseline;
-    flex-direction: row-reverse;
   }
 }
 header .logo {
@@ -1653,6 +1652,7 @@ header .baskethead {
   display: none;
   align-items: stretch;
   gap: 5px;
+  transition: all ease 0.1s;
 }
 header .baskethead i {
   font-size: 22px;
@@ -1660,28 +1660,31 @@ header .baskethead i {
 @media screen and (max-width: 715px) {
   header .baskethead {
     display: flex;
+    position: absolute;
+    right: 55px;
+    top: 15px;
   }
 }
-header .menu-navigation-container {
+header .menu-menu-1-container {
   display: flex;
 }
 @media screen and (max-width: 715px) {
-  header .menu-navigation-container {
+  header .menu-menu-1-container {
     display: none;
   }
 }
-header .menu-navigation-container ul {
+header .menu-menu-1-container ul {
   display: flex;
   gap: 2em;
   list-style: none;
 }
-header .menu-navigation-container ul li:last-child {
+header .menu-menu-1-container ul li:last-child {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 @media screen and (max-width: 715px) {
-  header .menu-navigation-container ul {
+  header .menu-menu-1-container ul {
     display: none;
   }
 }

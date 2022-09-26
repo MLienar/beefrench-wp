@@ -22,7 +22,6 @@ header {
         margin-top: 10px;
         width: 145px;
         align-items: baseline;
-        flex-direction: row-reverse;
     }
     .logo {
         font-weight: bold;
@@ -37,14 +36,18 @@ header {
         display: none;
         align-items: stretch;
         gap: 5px;
+        transition: all ease 0.1s;
         i{
             font-size: 22px;
         }
         @media screen and (max-width: 715px) {
             display: flex;
+            position: absolute;
+            right: 55px;
+            top: 15px;
         }
     }
-    .menu-navigation-container {
+    .menu-menu-1-container {
         display: flex;
         @media screen and (max-width: 715px) {
            display:none;

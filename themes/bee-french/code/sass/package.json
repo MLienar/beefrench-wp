@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./public/css/style.css"
+    "sass": "sass --watch ./themes/bee-french/code/sass/main.scss:./themes/bee-french/code/public/css/style.css"
   },
   "author": "",
   "license": "ISC"
